@@ -1,4 +1,9 @@
 {
     "maven.view": "hierarchical",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "remoteX11.WSL.enable": true,
+    "remoteX11.screen": 0,
+    "remoteX11.container.enable": true,
+    "remoteX11.display": 0,
+    "remoteX11.SSH.enable": true
 }

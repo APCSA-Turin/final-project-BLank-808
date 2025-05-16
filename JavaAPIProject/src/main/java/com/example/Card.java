@@ -7,9 +7,6 @@ public class Card{
     int atk,def,level,scale;
     public Card (String str, boolean addCardToList){
         fullData=reformat(str);
-        if(addCardToList==true){
-        FileSaver.saveData(fullData);
-        }
         name= fullData.substring(fullData.indexOf("\"name\":\"")+8,fullData.indexOf("\",\"t"));
         type= fullData.substring(fullData.indexOf("\"type\":\"")+8,fullData.indexOf("\",\"h"));
         attribute= fullData.substring(fullData.indexOf("attribute\":\"")+12,(fullData.substring(fullData.indexOf("attribute\":\"")+12).indexOf("\"")+fullData.indexOf("attribute\":\"")+12));
@@ -38,7 +35,11 @@ public class Card{
          content.append("Def: " + def +"\n");
          content.append("Image URL: " + imageURL +"\n");
          content.append("Image URL Small: " + imageURLS);
-         fullData=content.toString();
+         //fullData=content.toString();
+
+                 if(addCardToList==true){
+        FileSaver.saveData(fullData);
+        }
     }
 
     public String reformat(String str){
