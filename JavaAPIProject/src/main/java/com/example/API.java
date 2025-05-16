@@ -1,3 +1,9 @@
+package com.example;
+import java.net.URL;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+
 public class API {
     public static String getData(String endpoint) throws Exception {
 
@@ -26,6 +32,7 @@ public class API {
         
         buff.close(); //close the bufferreader
         connection.disconnect(); //disconnect from server 
+
         return content.toString(); //return the content as a string
     }
 }
