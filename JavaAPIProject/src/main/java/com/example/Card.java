@@ -5,10 +5,11 @@ import java.io.File;
 import java.lang.StringBuilder;
 public class Card{
     String fullData;
-    String name,attribute,archetype,imageURL,imageURLS,type,race,id;
+    String name,attribute,archetype,imageURL,imageURLS,type,race,id, desc;
     int atk,def,level,scale;
     public Card (String str, boolean addCardToList){
         fullData=reformat(str);
+        fullData.replace(":", "\":\"");
         name= fullData.substring(fullData.indexOf("\"name\":\"")+8,fullData.indexOf("\",\"type"));
         type= fullData.substring(fullData.indexOf("\"type\":\"")+8,fullData.indexOf("\",\"h"));
         attribute= fullData.substring(fullData.indexOf("attribute\":\"")+12,(fullData.substring(fullData.indexOf("attribute\":\"")+12).indexOf("\"")+fullData.indexOf("attribute\":\"")+12));
@@ -30,36 +31,50 @@ public class Card{
          def= Integer.valueOf(fullData.substring(fullData.indexOf("\"def\":")+6,fullData.indexOf(",\"level\":") ));
          level= Integer.valueOf(fullData.substring(fullData.indexOf("\"level\":")+8,fullData.indexOf(",\"attribute\":") ));
         }
+        desc=fullData.substring(fullData.indexOf("desc\":\"")+7,fullData.indexOf("\",\"race"));
+
          StringBuilder content= new StringBuilder();
-         content.append("Name: " + name +"\n");
-         content.append("Level: " + level +"\n");
-         content.append("Type: " + type+" "+race +"\n");
-         content.append("Attribute: " + attribute +"\n");
-         content.append("Archetype: " + archetype +"\n");
-         content.append("Scale: " + scale +"\n");
-         content.append("Atk: " + atk +"\n");
-         content.append("Def: " + def +"\n");
-         content.append(fullData.substring(fullData.indexOf("desc\":\"")+7,fullData.indexOf("\",\"race")));
+         content.append("Name: " + name +"+");
+         content.append("Level: " + level +"+");
+         content.append("Type: " + type+" "+race +"+");
+         content.append("Attribute: " + attribute +"+");
+         content.append("Archetype: " + archetype +"+");
+         content.append("Scale: " + scale +"+");
+         content.append("Atk: " + atk +"+");
+         content.append("Def: " + def +"+");
+         content.append(desc);
          fullData=content.toString();
 
         if(addCardToList==true){
-        FileSaver.saveData(fullData+"ID: "+ id+"\n,");
+        FileSaver.saveData(fullData+"+ID: "+ id+"\n\",\"");
         // FileSaver.saveCardImage(imageURL, id);
         }
     }
 
     public Card(String savedDesc){
-        String[] temp= savedDesc.split(" ");
-        name= temp[1];
-        level= Integer.valueOf(temp[3]);
-        type= temp[5];
-        attribute= temp[7];
-        archetype= temp[9];
-        scale= Integer.valueOf(temp[11]);
-        atk= Integer.valueOf(temp[13]);
-        def= Integer.valueOf(temp[15]);
-        id= temp[17];
+        String[] temp= savedDesc.split(": ");
+        name= temp[1].substring(0,temp[1].indexOf("+"));
+        level= Integer.valueOf(temp[2].substring(0,temp[2].indexOf("+")));
+        type= temp[3].substring(0,temp[3].indexOf("+"));
+        attribute= temp[4].substring(0,temp[4].indexOf("+"));
+        archetype= temp[5].substring(0,temp[5].indexOf("+"));
+        scale= Integer.valueOf(temp[6].substring(0,temp[6].indexOf("+")));
+        atk= Integer.valueOf(temp[7].substring(0,temp[7].indexOf("+")));
+        def= Integer.valueOf(temp[8].substring(0,temp[8].indexOf("+")));
+        desc=temp[8].substring(temp[8].indexOf("+"), temp[8].indexOf("+ID"));
+        id= temp[9];
 
+        StringBuilder content= new StringBuilder();
+         content.append("Name: " + name +"+");
+         content.append("Level: " + level +"+");
+         content.append("Type: " + type+" "+race +"+");
+         content.append("Attribute: " + attribute +"+");
+         content.append("Archetype: " + archetype +"+");
+         content.append("Scale: " + scale +"+");
+         content.append("Atk: " + atk +"+");
+         content.append("Def: " + def +"+");
+         content.append(desc);
+         fullData=content.toString();
     }
     public String reformat(String str){
         String temp = str.replace( ",", "\n");
@@ -71,7 +86,7 @@ public class Card{
     }
 
     public String toString(){
-        return fullData;
+        return fullData.replace("+", "\n");
     }
 
 }

@@ -1,20 +1,23 @@
 package com.example;
 import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
 import javax.swing.SwingUtilities;
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
+    static ArrayList<Card> allCards= new ArrayList<>();
     public static void main( String[] args ) throws Exception
     {
-        String a = API.getData("https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Normal%20Monster");
-        String[] cardList= a.split("coolstuffinc_price");
+        String a = FileLoader.returnFileAsString("CardData.txt");
+        String[] cardList= a.split("\",\"");
         for (String string : cardList) {
-            if(string.contains("name")){
-            Card c1= new Card(string, true);
+            //System.out.println(string);
+            if(string.contains("name")|| string.contains("Name")){
+            Card c1= new Card(string);
+            allCards.add(c1);
             System.out.println(c1);
+            System.out.println();
             }
         }
         // SwingUtilities.invokeLater(new Runnable() {
