@@ -20,13 +20,21 @@ public class App
             System.out.println();
             }
         }
-        // SwingUtilities.invokeLater(new Runnable() {
-        //     @Override
-        //     public void run(){
-        //         MainWindow mW= new MainWindow();
-        //         mW.card(c1);
-        //         mW.show();
-        //     }
-        // });
+    Card[] deck= new Card[60];
+    for(int i=0;i<10;i++){
+        deck[i]=allCards.get(i);
+    }
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run(){
+                MainWindow mW= new MainWindow();
+                for (Card c : deck) {
+                    if(c!=null){
+                        mW.card();
+                    }
+                }
+                mW.show();
+            }
+        });
     }
 }
