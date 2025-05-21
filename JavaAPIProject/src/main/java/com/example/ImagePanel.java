@@ -1,68 +1,101 @@
 package com.example;
 
-import javax.swing.JPanel;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.TextArea;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.awt.Graphics;
+import java.util.ArrayList;
 
 public class ImagePanel extends JPanel{
-    Point imagecorner;
     Point previusPoint;
-    ImageIcon image;
+    ArrayList<DraggableImage> images;
     TextArea iArea;
-    Card card;
-    public ImagePanel(String path){
-        image= new ImageIcon(path);
-        image.setImage(image.getImage().getScaledInstance(160, 210, Image.SCALE_DEFAULT));
-        imagecorner= new Point(0,0);
-        ClickListener clickListener= new ClickListener();
-        this.addMouseListener(clickListener);
-        DragListener dragListener= new DragListener();
-        this.addMouseMotionListener(dragListener);
-    }
-
-        public ImagePanel(String path, TextArea infoArea, Card c){
-        image= new ImageIcon(path);
-        iArea=infoArea;
-        card=c;
-        image.setImage(image.getImage().getScaledInstance(160, 210, Image.SCALE_DEFAULT));
-        imagecorner= new Point(0,0);
-        ClickListener clickListener= new ClickListener();
-        this.addMouseListener(clickListener);
-        DragListener dragListener= new DragListener();
-        this.addMouseMotionListener(dragListener);
-    }
-
-    public void paintComponent(Graphics g){
-        super.paintComponent(g);
-        System.out.println((int)imagecorner.getX() +" "+(int)imagecorner.getY());
-        image.paintIcon(this, g, (int)imagecorner.getX(), (int)imagecorner.getY());
-        if(iArea!=null){
-            iArea.setText(card.toString());
-        }
-    }
-
-    private class  ClickListener extends MouseAdapter {
-        public void mousePressed(MouseEvent evt){
-            previusPoint=evt.getPoint();
-        }
-    }
-
-    private class  DragListener extends MouseMotionAdapter {
-    
-        public void mouseDragged(MouseEvent evt){
-            if((int)evt.getX()<=image.getIconWidth()+imagecorner.getX() && (int)evt.getY()<=image.getIconHeight()+imagecorner.getY() && (int)evt.getX()>=imagecorner.getX() && (int)evt.getY()>=imagecorner.getY()){
-            Point currPoint= evt.getPoint();
-            imagecorner.translate((int)(currPoint.getX()-previusPoint.getX()), (int)(currPoint.getY()-previusPoint.getY()));
-            previusPoint=currPoint;
-            repaint();
+    Point dragStartPoint;
+    DraggableImage draggedImage;
+    public ImagePanel(TextArea ta){
+        // Mouse listeners for dragging
+        iArea=ta;
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                dragStartPoint = e.getPoint();
+                draggedImage = getDraggableImageAt(dragStartPoint);
+                if(draggedImage.c!=null){
+                    iArea.setText(draggedImage.c.toString());
+                }
             }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                draggedImage = null;
+            }
+        });
+
+        addMouseMotionListener(new MouseMotionAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                if (draggedImage != null) {
+                    Point currentPoint = e.getPoint();
+                    int deltaX = currentPoint.x - dragStartPoint.x;
+                    int deltaY = currentPoint.y - dragStartPoint.y;
+
+                    draggedImage.setLocation(draggedImage.getX() + deltaX, draggedImage.getY() + deltaY);
+                    dragStartPoint = currentPoint;
+                }
+            }
+        });
+
+        setVisible(true);
+    }
+
+    private void addImage(String imagePath, int x, int y) {
+        try{
+            ImageIcon icon = new ImageIcon(imagePath);
+            icon.setImage(icon.getImage().getScaledInstance(160, 210, Image.SCALE_DEFAULT));
+            DraggableImage image = new DraggableImage(icon);
+            image.setBounds(x, y, icon.getIconWidth(), icon.getIconHeight());
+            add(image);
+            images.add(image);
+            repaint();
+        } catch (Exception e){
+            System.err.println("Error loading or adding image: " + e.getMessage());
+        }
+    }
+
+    public void addCardImage(String imagePath, int x, int y, Card c) {
+        try{
+            ImageIcon icon = new ImageIcon(imagePath);
+            icon.setImage(icon.getImage().getScaledInstance(160, 210, Image.SCALE_DEFAULT));
+            DraggableImage image = new DraggableImage(icon,c);
+            image.setBounds(x, y, icon.getIconWidth(), icon.getIconHeight());
+            add(image);
+            images.add(image);
+            repaint();
+        } catch (Exception e){
+            System.err.println("Error loading or adding image: " + e.getMessage());
+        }
+    }
+
+    private DraggableImage getDraggableImageAt(Point point) {
+        for (int i = images.size() - 1; i >= 0; i--) {
+            DraggableImage image = images.get(i);
+            if (image.getBounds().contains(point)) {
+                return image;
+            }
+        }
+        return null;
+    }
+
+    private class DraggableImage extends JLabel {
+        Card c;
+        public DraggableImage(ImageIcon icon) {
+            super(icon);
+        }
+
+        public DraggableImage(ImageIcon icon,Card card) {
+            super(icon);
+            c=card;
         }
     }
 }
