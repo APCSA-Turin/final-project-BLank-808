@@ -9,13 +9,14 @@ import java.util.ArrayList;
 
 public class ImagePanel extends JPanel{
     Point previusPoint;
-    ArrayList<DraggableImage> images;
-    TextArea iArea;
+    ArrayList<DraggableImage> images= new ArrayList<>();
+    JTextArea iArea;
+    JTextArea HpDisplay;
     Point dragStartPoint;
     DraggableImage draggedImage;
-    public ImagePanel(TextArea ta){
-        // Mouse listeners for dragging
-        iArea=ta;
+    public ImagePanel(WestPanel ta, Container wContainer){
+        iArea=ta.iArea;
+        HpDisplay=ta.HpDisplay;
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -42,6 +43,19 @@ public class ImagePanel extends JPanel{
 
                     draggedImage.setLocation(draggedImage.getX() + deltaX, draggedImage.getY() + deltaY);
                     dragStartPoint = currentPoint;
+                    DraggableImage other=getDraggableImageAt(currentPoint);
+                    if(draggedImage != other){
+                        if(draggedImage.c.atk<other.c.atk){
+                            App.Hp+= draggedImage.c.atk - other.c.atk;
+                            remove(draggedImage);
+                            draggedImage=null;
+                            HpDisplay.setText(String.valueOf(App.Hp));
+                        }else if(draggedImage.c.atk>other.c.atk){
+                            App.Hp2+= draggedImage.c.atk - other.c.atk;
+                            other.setSize(10,10);
+                            remove(other);
+                        }
+                    }
                 }
             }
         });
@@ -63,12 +77,12 @@ public class ImagePanel extends JPanel{
         }
     }
 
-    public void addCardImage(String imagePath, int x, int y, Card c) {
+    public void addCardImage(String imagePath, Card c) {
         try{
             ImageIcon icon = new ImageIcon(imagePath);
-            icon.setImage(icon.getImage().getScaledInstance(160, 210, Image.SCALE_DEFAULT));
+            icon.setImage(icon.getImage().getScaledInstance(116, 140, Image.SCALE_DEFAULT));
             DraggableImage image = new DraggableImage(icon,c);
-            image.setBounds(x, y, icon.getIconWidth(), icon.getIconHeight());
+            image.setBounds(0,0,icon.getIconWidth(), icon.getIconHeight());
             add(image);
             images.add(image);
             repaint();

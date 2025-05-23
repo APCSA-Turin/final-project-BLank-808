@@ -67,7 +67,7 @@ public class Card{
         StringBuilder content= new StringBuilder();
          content.append("Name: " + name +"+");
          content.append("Level: " + level +"+");
-         content.append("Type: " + type+" "+race +"+");
+         content.append("Type: " + type +"+");
          content.append("Attribute: " + attribute +"+");
          content.append("Archetype: " + archetype +"+");
          content.append("Scale: " + scale +"+");
@@ -76,6 +76,7 @@ public class Card{
          content.append(desc);
          fullData=content.toString();
     }
+
     public String reformat(String str){
         String temp = str.replace( ",", "\n");
         temp = str.replace( "\\n", "\n");
