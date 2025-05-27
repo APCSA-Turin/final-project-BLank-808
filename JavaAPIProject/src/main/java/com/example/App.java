@@ -36,6 +36,10 @@ public class App
                 for (int i = 0; i < 5; i++) {
                     mW.card(deck[i], "hand");
                 }
+                mW.imagePanel.handX=300;
+                for (int i = 5; i < 15; i++) {
+                    mW.card(deck[i], "handE");
+                }
                 mW.show();
             }
         });

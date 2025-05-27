@@ -4,8 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.border.Border;
 
 public class WestPanel extends JPanel{
     JTextArea iArea;
@@ -25,6 +27,10 @@ public class WestPanel extends JPanel{
         iArea.setWrapStyleWord(true);
         iArea.setFont(new Font("Base", 1,13));
         iArea.setIgnoreRepaint(true);
+        iArea.setEditable(false);
+        HpDisplay.setEditable(false);
+        Border lineBorder = BorderFactory.createLineBorder(Color.BLACK, 2);
+        HpDisplay.setBorder(lineBorder);
         add(iArea,BorderLayout.WEST);
         add(HpDisplay, BorderLayout.NORTH);
     }

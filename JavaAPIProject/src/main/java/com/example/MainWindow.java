@@ -6,7 +6,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 class MainWindow extends JFrame{
-    private ImagePanel imagePanel;
+    ImagePanel imagePanel;
     private JFrame window;
     public MainWindow(){
         window=new JFrame();
@@ -19,7 +19,7 @@ class MainWindow extends JFrame{
         window.add(infoPanel,BorderLayout.WEST);
         //adds Image panel with selected info panel
         imagePanel= new ImagePanel(infoPanel,this);
-        window.add(imagePanel, BorderLayout.CENTER);
+        window.add(imagePanel);
     }
 
     public void show(){
@@ -27,6 +27,6 @@ class MainWindow extends JFrame{
     }
 
     public void card(Card card, String location){
-        imagePanel.addCardImage("JavaAPIProject/src/main/media/"+card.id+".jpg",card);
+        imagePanel.addCardImage("JavaAPIProject/src/main/media/"+card.id+".jpg",card,location);
     }
 }
