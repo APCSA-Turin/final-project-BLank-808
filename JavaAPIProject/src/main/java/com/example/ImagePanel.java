@@ -67,7 +67,7 @@ public class ImagePanel extends JPanel{
             public void mouseReleased(MouseEvent e) {
                     DraggableImage other=getDraggableImageAt(e.getPoint(), draggedImage);
                     System.out.println(other);
-                    if(!draggedImage.getName().equals(other.getName())){
+                    if(other!=null && !draggedImage.getName().equals(other.getName())){
                         if(draggedImage.c.atk<other.c.atk){
                             App.Hp+= draggedImage.c.atk - other.c.atk;
                             remove(draggedImage);
@@ -157,7 +157,7 @@ public class ImagePanel extends JPanel{
         private DraggableImage getDraggableImageAt(Point point, DraggableImage exeption) {
         for (int i = images.size() - 1; i >= 0; i--) {
             DraggableImage image = images.get(i);
-            if (image.getBounds().contains(point) && exeption!=image) {
+            if (image.getBounds().contains(point) && image != exeption) {
                 return image;
             }
         }
