@@ -47,7 +47,7 @@ public class Card{
 
         if(addCardToList==true){
         FileSaver.saveData(fullData+"+ID: "+ id+"\n\",\"");
-        // FileSaver.saveCardImage(imageURL, id);
+        FileSaver.saveCardImage(imageURL, id);
         }
     }
 

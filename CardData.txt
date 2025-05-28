@@ -1365,3 +1365,29 @@ Inseparable+ID: 14575467
 ","
 Name: Zure, Knight of Dark World+Level: 4+Type: Normal Monster Fiend+Attribute: DARK+Archetype: Dark World+Scale: -1+Atk: 1800+Def: 1500+The name of this illustrious knight is known by all residents of Dark World. He never oppresses the commoners.+ID: 7459013
 ","
+Name: Ally Mind+Level: 5+Type: Normal Tuner Monster Machine+Attribute: DARK+Archetype: Ally of Justice+Scale: -1+Atk: 1800+Def: 1400+A high-performance unit developed to enhance the Artificial Intelligence program of the Allies of Justice. Loaded with elements collected from a meteor found in the Worm Nebula, it allows for highly tuned processing. But its full capacity is not yet determined.+ID: 40155554
+","
+Name: Angel Trumpeter+Level: 4+Type: Normal Tuner Monster Plant+Attribute: EARTH+Archetype: Fairy+Scale: -1+Atk: 1900+Def: 1600+This beautiful, fairy-like flower generates a delusional mist to keep intruders away from the deepest parts of the forest, where sacred beasts dwell.+ID: 87979586
+","
+Name: Dragon Core Hexer+Level: 8+Type: Normal Tuner Monster Dragon+Attribute: DARK+Archetype: null+Scale: -1+Atk: 2300+Def: 3000+Many years of dragonslaying have bathed this huntress in countless amounts of blood. Each drop gave her more power, but at a terrible price, as her cursed body now spreads the dragontaint like an epidemic. No village will take her in, and she no longer even remembers what inspired her crusade in the first place.+ID: 38955728
+","
+Name: Flamvell Guard+Level: 1+Type: Normal Tuner Monster Dragon+Attribute: FIRE+Archetype: Flamvell+Scale: -1+Atk: 100+Def: 2000+A Flamvell guardian who commands fire with his will. His magma-hot barrier protects his troops from intruders.+ID: 21615956
+","
+Name: Galaxy Serpent+Level: 2+Type: Normal Tuner Monster Dragon+Attribute: LIGHT+Archetype: null+Scale: -1+Atk: 1000+Def: 0+Your hopes and dreams will be refreshed if you catch a glimpse of this rare creature in the evening twilight, soaring in the Sea of Stars.+ID: 11066358
+","
+Name: Genex Controller+Level: 3+Type: Normal Tuner Monster Machine+Attribute: DARK+Archetype: Genex+Scale: -1+Atk: 1400+Def: 1200+As a master of all powers and elements, this is one of the few Genex monsters that can communicate with its companions.+ID: 68505803
+","
+Name: Guardragon Justicia+Level: 2+Type: Normal Tuner Monster Dragon+Attribute: WATER+Archetype: Guardragon+Scale: -1+Atk: 0+Def: 2100+''The fate of the World depends on the Guardragons, born from the World Legacy.''+ID: 11012154
+","
+Name: Labradorite Dragon+Level: 6+Type: Normal Tuner Monster Dragon+Attribute: DARK+Archetype: null+Scale: -1+Atk: 0+Def: 2400+The ancients compared this prized creature to moonlight rippling across water. A bringer of harmony, reminder of past glories, able to soothe the hearts of even the most ambitious men.+ID: 62514770
+","
+Name: Space Omajinai Usagi+Level: 1+Type: Normal Tuner Monster Spellcaster+Attribute: LIGHT+Archetype: null+Scale: -1+Atk: 0+Def: 1500+''A mysterious visitor from the heavens. She converts people's sense of pain into signals and sends them into space, but why she does so is still unknown to this day.
+
+...pain, pain, fly away, fly away.''+ID: 47643326
+","
+Name: Stinger the Electric Expeller+Level: 3+Type: Normal Tuner Monster Psychic+Attribute: WIND+Archetype: null+Scale: -1+Atk: 800+Def: 1000+''A member of the Dune Defense Force who manage to keep repelling the foreign invaders, thanks to their heroic efforts. His sword is supposed to be wielded only for the sake of protecting those he wishes to protect.''+ID: 57649113
+","
+Name: Tune Warrior+Level: 3+Type: Normal Tuner Monster Warrior+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1600+Def: 200+The Warrior's antenna can attune it to any energy wave. It can monitor transmissions from miles away but always suffers from bad reception.+ID: 74093656
+","
+Name: Water Spirit+Level: 1+Type: Normal Tuner Monster Aqua+Attribute: WATER+Archetype: null+Scale: -1+Atk: 400+Def: 1200+This ancient water spirit haunts the glacial monoliths of Antarctica. It has the power to seep into the pores of any substance and chill it to the bone.+ID: 487395
+","
