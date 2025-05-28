@@ -17,7 +17,7 @@ public class App
     static int Hp2=8000;
     public static void main( String[] args ) throws Exception {
 
-     String a = API.getData("https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Normal Tuner Monster");//FileLoader.returnFileAsString("CardData.txt");
+     String a = API.getData("https://db.ygoprodeck.com/api/v7/cardinfo.php?type=Pendulum Normal Monster");//FileLoader.returnFileAsString("CardData.txt");
      //"\"card_prices\":"   "\",\""
      String[] cardList = a.split("\"card_prices\":");
      for (String string : cardList) {

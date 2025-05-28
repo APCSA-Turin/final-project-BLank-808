@@ -1391,3 +1391,233 @@ Name: Tune Warrior+Level: 3+Type: Normal Tuner Monster Warrior+Attribute: EARTH+
 ","
 Name: Water Spirit+Level: 1+Type: Normal Tuner Monster Aqua+Attribute: WATER+Archetype: null+Scale: -1+Atk: 400+Def: 1200+This ancient water spirit haunts the glacial monoliths of Antarctica. It has the power to seep into the pores of any substance and chill it to the bone.+ID: 487395
 ","
+Name: Bujin Hiruko+Level: 4+Type: Pendulum Normal Monster Beast-Warrior+Attribute: LIGHT+Archetype: Bujin+Scale: 3+Atk: 1000+Def: 2000+[ Pendulum Effect ] 
+You can banish this card in your Pendulum Zone, then target 1 \"Bujin\" Xyz Monster you control; Special Summon from your Extra Deck, 1 \"Bujin\" Xyz Monster with a different name, by using that target as the Xyz Material. (This Special Summon is treated as an Xyz Summon. Xyz Materials attached to it also become Xyz Materials on the Summoned monster.)
+
+[ Monster Effect ] 
+''Imprisoned after a showdown with \"Bujin Hirume\" over the Sky Throne, this master schemer eventually escaped by manipulating Hirume and creating the sinister \"Bujinki Amaterasu\", then went on to almost engulf the world in darkness, but was finally defeated by Yamato and his allies.''+ID: 70026064
+","
+Name: Dragon Horn Hunter+Level: 6+Type: Pendulum Normal Monster Warrior+Attribute: DARK+Archetype: null+Scale: 3+Atk: 2300+Def: 1000+[ Pendulum Effect ] 
+All Normal Monsters gain 200 ATK. You take no battle damage from battles involving Normal Monsters you control.
+
+[ Monster Effect ] 
+''The horns were needed to prepare a medicine for her village, suffering from a plague. Unknown to her, the dragons burned and trampled her village, once displaced from their den.''+ID: 21970285
+","
+Name: Dragong+Level: 4+Type: Pendulum Normal Monster Machine+Attribute: EARTH+Archetype: null+Scale: 7+Atk: 500+Def: 2100+''This gong harbors the soul of an untamed dragon. It soars through the skies with an incredible roar, marshaling all those who hear its call to battle.''+ID: 83980492
+","
+Name: Dragonpit Magician+Level: 7+Type: Pendulum Normal Monster Spellcaster+Attribute: WATER+Archetype: Magician+Scale: 8+Atk: 900+Def: 2700+[ Pendulum Effect ] 
+Once per turn, if you have a \"Magician\" card in your other Pendulum Zone: You can discard 1 Pendulum Monster, then target 1 Spell/Trap Card on the field; destroy it.
+
+[ Monster Effect ] 
+''This gifted magician can awaken the energy stored in the deep places of the earth, known as the Pits of the Dragon. His stoic approach wins him few friends, and he often bends to the desires of his pupil.''+ID: 51531505
+","
+Name: Dragonpulse Magician+Level: 4+Type: Pendulum Normal Monster Spellcaster+Attribute: EARTH+Archetype: Magician+Scale: 1+Atk: 1800+Def: 900+[ Pendulum Effect ] 
+Once per turn, if you have a \"Magician\" card in your other Pendulum Zone: You can discard 1 Pendulum Monster, then target 1 face-up monster on the field; destroy it.
+
+[ Monster Effect ] 
+''This boy magician has the gift of seeing the natural lines of energy that run through the earth, which his people call the Pulse of the Dragon. His exuberance and skill put him in high regard with his mentor, the \"Dragonpit Magician\".''+ID: 15146890
+","
+Name: Dragoons of Draconia+Level: 4+Type: Pendulum Normal Monster Beast-Warrior+Attribute: FIRE+Archetype: Draconia+Scale: 2+Atk: 1800+Def: 200+[ Pendulum Effect ] 
+Once per turn, if a Normal Monster you control destroys an opponent's monster by battle, after damage calculation: You can add 1 Level 4 or higher Normal Monster from your Deck to your hand.
+
+[ Monster Effect ] 
+''Armed with muskets and iron spears, these mounted land troops of the Draconia Empire are feared by the Reptier Kingdom and other bordering nations.''+ID: 73779005
+","
+Name: Fire Opal Head+Level: 6+Type: Pendulum Normal Monster Dinosaur+Attribute: FIRE+Archetype: null+Scale: 0+Atk: 2500+Def: 1000+''This dinosaur pack leader with a burning head of stone is named after his finishing move.''+ID: 28363749
+","
+Name: Flash Knight+Level: 4+Type: Pendulum Normal Monster Warrior+Attribute: LIGHT+Archetype: null+Scale: 7+Atk: 1800+Def: 600+''The power of the pendulum flashes forth from this shining knight.''+ID: 17390179
+","
+Name: Foucault's Cannon+Level: 5+Type: Pendulum Normal Monster Spellcaster+Attribute: DARK+Archetype: null+Scale: 2+Atk: 2200+Def: 1200+[ Pendulum Effect ] 
+Once per turn, during the End Phase, if this card was activated this turn: You can target 1 face-up Spell/Trap Card on the field; destroy it.
+
+[ Monster Effect ] 
+''A mechanized life form, roving through space-time. But the mysterious thing is that its memory i... m...stly gone. W...at is t...e reason? D..... refuse t... b.... interfered w...h?''+ID: 43785278
+","
+Name: Ghost Beef+Level: 7+Type: Pendulum Normal Monster Beast+Attribute: DARK+Archetype: null+Scale: 4+Atk: 2000+Def: 1000+[ Pendulum Effect ] 
+Once per turn: You can roll a six-sided die. Until the end of this turn, increase this card's Pendulum Scale by that number (max. 10).
+
+[ Monster Effect ] 
+''The Ghost of Christmas Dinner.''+ID: 84046493
+","
+Name: Hallohallo+Level: 3+Type: Pendulum Tuner Effect Monster Fiend+Attribute: DARK+Archetype: null+Scale: 2+Atk: 800+Def: 600+[ Pendulum Effect ] 
+Once per turn: You can target 1 face-up monster on the field; roll a six-sided die and that monster's Level becomes the same as the result until the end of this turn.
+
+[ Monster Effect ] 
+''Hallo Hallo, brain of tallow,
+
+Guts are gone, noggin's hollow.
+
+Seeking sweets and marshing mallows,
+
+Watch your back, and your candy sack.''+ID: 77994337
+","
+Name: Igknight Cavalier+Level: 5+Type: Pendulum Normal Monster Warrior+Attribute: FIRE+Archetype: Igknight+Scale: 2+Atk: 2400+Def: 1200+[ Pendulum Effect ] 
+If you have an \"Igknight\" card in your other Pendulum Zone: You can destroy both cards in your Pendulum Zones, and if you do, add 1 FIRE Warrior-Type monster from your Deck or Graveyard to your hand.
+
+[ Monster Effect ] 
+''The vaunted weapons of this pink Igknight have inflicted as much damage to her enemies as to her own troops, but she gets results so very few complain.''+ID: 67273917
+","
+Name: Igknight Crusader+Level: 3+Type: Pendulum Normal Monster Warrior+Attribute: FIRE+Archetype: Igknight+Scale: 2+Atk: 1600+Def: 300+[ Pendulum Effect ] 
+If you have an \"Igknight\" card in your other Pendulum Zone: You can destroy both cards in your Pendulum Zones, and if you do, add 1 FIRE Warrior-Type monster from your Deck or Graveyard to your hand.
+
+[ Monster Effect ] 
+''This impulsive Igknight warrior is fanatical about the causes he fights for. Because of this passion, his comrades try to keep him at arm's length.''+ID: 61639289
+","
+Name: Igknight Gallant+Level: 6+Type: Pendulum Normal Monster Warrior+Attribute: FIRE+Archetype: Igknight+Scale: 2+Atk: 2100+Def: 2200+[ Pendulum Effect ] 
+If you have an \"Igknight\" card in your other Pendulum Zone: You can destroy both cards in your Pendulum Zones, and if you do, add 1 FIRE Warrior-Type monster from your Deck or Graveyard to your hand.
+
+[ Monster Effect ] 
+''A leader of the most dashing Igknight commando unit. His greatest challenge is keeping the hot tempers of his men under control.''+ID: 96802306
+","
+Name: Igknight Margrave+Level: 5+Type: Pendulum Normal Monster Warrior+Attribute: FIRE+Archetype: Igknight+Scale: 7+Atk: 1500+Def: 2500+[ Pendulum Effect ] 
+If you have an \"Igknight\" card in your other Pendulum Zone: You can destroy both cards in your Pendulum Zones, and if you do, add 1 FIRE Warrior-Type monster from your Deck or Graveyard to your hand.
+
+[ Monster Effect ] 
+''A high-ranking Igknight warrior. When he does enter the fray, his sweeping attacks are feared not just by the enemy but also his own troops.''+ID: 50407691
+","
+Name: Igknight Paladin+Level: 4+Type: Pendulum Normal Monster Warrior+Attribute: FIRE+Archetype: Igknight+Scale: 2+Atk: 1400+Def: 1900+[ Pendulum Effect ] 
+If you have an \"Igknight\" card in your other Pendulum Zone: You can destroy both cards in your Pendulum Zones, and if you do, add 1 FIRE Warrior-Type monster from your Deck or Graveyard to your hand.
+
+[ Monster Effect ] 
+''This Igknight has a reputation as a thinker with a cool head. But the truth is that his emotions just take longer to heat up.''+ID: 24019092
+","
+Name: Igknight Squire+Level: 3+Type: Pendulum Normal Monster Warrior+Attribute: FIRE+Archetype: Igknight+Scale: 7+Atk: 0+Def: 2000+[ Pendulum Effect ] 
+If you have an \"Igknight\" card in your other Pendulum Zone: You can destroy both cards in your Pendulum Zones, and if you do, add 1 FIRE Warrior-Type monster from your Deck or Graveyard to your hand.
+
+[ Monster Effect ] 
+''The cold steel armor of this young squire cannot hide the keen, burning mind contained within.''+ID: 24131534
+","
+Name: Igknight Templar+Level: 4+Type: Pendulum Normal Monster Warrior+Attribute: FIRE+Archetype: Igknight+Scale: 7+Atk: 1700+Def: 1300+[ Pendulum Effect ] 
+If you have an \"Igknight\" card in your other Pendulum Zone: You can destroy both cards in your Pendulum Zones, and if you do, add 1 FIRE Warrior-Type monster from your Deck or Graveyard to your hand.
+
+[ Monster Effect ] 
+''An experienced Igknight warrior who fights for justice and despises the corrupt. He even questions his own weapon these days, due to his absolute quest for righteousness.''+ID: 97024987
+","
+Name: Igknight Veteran+Level: 6+Type: Pendulum Normal Monster Warrior+Attribute: FIRE+Archetype: Igknight+Scale: 7+Atk: 1300+Def: 2700+[ Pendulum Effect ] 
+If you have an \"Igknight\" card in your other Pendulum Zone: You can destroy both cards in your Pendulum Zones, and if you do, add 1 FIRE Warrior-Type monster from your Deck or Graveyard to your hand.
+
+[ Monster Effect ] 
+''This grizzled leader of the bodyguards division acts as chaperone to the Cavalier, and is one of the few complainers about her recklessness (mostly to the Gallant, the only one who understands him).''+ID: 93662626
+","
+Name: Lancephorhynchus+Level: 6+Type: Pendulum Normal Monster Dinosaur+Attribute: WIND+Archetype: null+Scale: 7+Atk: 2500+Def: 800+[ Pendulum Effect ] 
+If a Normal Monster you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.
+
+[ Monster Effect ] 
+''This primordial species survived extinction by evolving an offensive lance that can pierce anything, although its diet still consists mainly of fish.''+ID: 48940337
+","
+Name: Magicalibra+Level: 4+Type: Pendulum Tuner Effect Monster Spellcaster+Attribute: WATER+Archetype: null+Scale: 5+Atk: 1000+Def: 1000+[ Pendulum Effect ] 
+You can declare a Level from 1 to 6, then target 2 face-up monsters you control; until the end of this turn, reduce the Level of 1 of those monsters by the declared amount, and if you do, increase the Level of the other by the same amount (even if this card leaves the field). You can only use this effect of \"Magicalibra\" once per turn.
+
+[ Monster Effect ] 
+''A sentient scale. It maintains the balance of the universe, but often places the stars on the wrong side.''+ID: 43857222
+","
+Name: Mandragon+Level: 5+Type: Pendulum Normal Monster Plant+Attribute: EARTH+Archetype: null+Scale: 2+Atk: 2500+Def: 1000+''This mandragora harbors the soul of a sorrowful dragon. The cursed tones of its wailing cause both fear and despair.''+ID: 19474136
+","
+Name: Master Pendulum, the Dracoslayer+Level: 4+Type: Pendulum Normal Monster Dragon+Attribute: LIGHT+Archetype: Dracoslayer+Scale: 3+Atk: 1950+Def: 0+[ Pendulum Effect ] 
+Once, while this card is in your Pendulum Zone: You can target 1 card in a Pendulum Zone; destroy it.
+
+[ Monster Effect ] 
+''\"Luster Pendulum, the Dracoslayer\" continues his journey to uncover the secrets of Dragon Alchemy, believing it is the key to dispelling his curse and restoring his memory. His power continues to grow... perhaps the same power used by the Dracofiends?''+ID: 75195825
+","
+Name: Metalfoes Goldriver+Level: 4+Type: Pendulum Normal Monster Psychic+Attribute: FIRE+Archetype: Metalfoes+Scale: 1+Atk: 1900+Def: 500+[ Pendulum Effect ] 
+Once per turn: You can target 1 other face-up card you control; destroy it, and if you do, Set 1 \"Metalfoes\" Spell/Trap directly from your Deck.
+
+[ Monster Effect ] 
+''That gleaming, golden buggy breaks bad guys good. What wonderful wheels! (With a bumbling buffoon....)''+ID: 33256280
+","
+Name: Metalfoes Silverd+Level: 3+Type: Pendulum Normal Monster Psychic+Attribute: FIRE+Archetype: Metalfoes+Scale: 1+Atk: 1700+Def: 100+[ Pendulum Effect ] 
+Once per turn: You can target 1 other face-up card you control; destroy it, and if you do, Set 1 \"Metalfoes\" Spell/Trap directly from your Deck.
+
+[ Monster Effect ] 
+''Sizzling soldier on a silver sublight speedjet. Can't track her, can't see her, can't escape that lightspeed laser.''+ID: 7868571
+","
+Name: Metalfoes Steelen+Level: 2+Type: Pendulum Normal Monster Psychic+Attribute: FIRE+Archetype: Metalfoes+Scale: 8+Atk: 0+Def: 2100+[ Pendulum Effect ] 
+Once per turn: You can target 1 other face-up card you control; destroy it, and if you do, Set 1 \"Metalfoes\" Spell/Trap directly from your Deck.
+
+[ Monster Effect ] 
+''Cool iron bodies meet burning metal machines and man/machine combine. Burn up the soul - Metalfoes Fusion!!''+ID: 60473572
+","
+Name: Metalfoes Volflame+Level: 7+Type: Pendulum Normal Monster Psychic+Attribute: FIRE+Archetype: Metalfoes+Scale: 8+Atk: 2400+Def: 2000+[ Pendulum Effect ] 
+Once per turn: You can target 1 other face-up card you control; destroy it, and if you do, Set 1 \"Metalfoes\" Spell/Trap directly from your Deck.
+
+[ Monster Effect ] 
+''Roasting red rockets boost its blazing, bright-blast burners to liquified lava levels. Vanquisher of the Vanisher!''+ID: 69351984
+","
+Name: Mild Turkey+Level: 4+Type: Pendulum Normal Monster Winged Beast+Attribute: FIRE+Archetype: null+Scale: 7+Atk: 1000+Def: 2000+[ Pendulum Effect ] 
+Once per turn: You can roll a six-sided die. Until the end of this turn, reduce this card's Pendulum Scale by that number (min. 1).
+
+[ Monster Effect ] 
+''The taste of victory will bowl you over.''+ID: 47558785
+","
+Name: Odd-Eyes Arc Pendulum Dragon+Level: 7+Type: Pendulum Normal Monster Dragon+Attribute: DARK+Archetype: -Eyes Dragon+Scale: 8+Atk: 2700+Def: 2000+[ Pendulum Effect ] 
+If an \"Odd-Eyes\" card(s) you control is destroyed by battle or card effect: You can Special Summon 1 \"Odd-Eyes\" monster from your hand, Deck, or GY. You can only use this effect of \"Odd-Eyes Arc Pendulum Dragon\" once per turn.
+
+[ Monster Effect ] 
+''Made from miracles, this valiant and beautiful dragon has gleaming eyes that reflect an arc drawn in the sky.''+ID: 14105623
+","
+Name: Prima Materiactor+Level: 3+Type: Pendulum Normal Monster Dragon+Attribute: LIGHT+Archetype: Materiactor+Scale: 1+Atk: 0+Def: 0+[ Pendulum Effect ] 
+Xyz Monsters you control gain 100 ATK for each Xyz Material on the field. You can target 1 \"Materiactor\" Xyz Monster you control; attach this card to it as material, then draw 1 card. You can only use this effect of \"Prima Materiactor\" once per turn.
+
+[ Monster Effect ] 
+''An alien life form that suddenly flew in from the heavens far away. Many researchers have tried to determine its true identity, but its luminosity and the miasma emitted have long shrouded its existence in mystery, making it extremely difficult to see the full extent of its existence. Recently, however, a number of new species have been discovered by up-and-coming researchers, and it appears that the full extent of the species' existence is finally being revealed.''+ID: 57448410
+","
+Name: Qliphort Monolith+Level: 5+Type: Pendulum Normal Monster Machine+Attribute: EARTH+Archetype: Qli+Scale: 1+Atk: 2400+Def: 1000+[ Pendulum Effect ] 
+You cannot Special Summon monsters, except \"Qli\" monsters. This effect cannot be negated. Once per turn, during the End Phase, if you Tribute Summoned this turn: You can draw a number of cards equal to the number of \"Qli\" monsters you Tributed for Tribute Summons this turn.
+
+[ Monster Effect ] 
+''Unhandled exception at 0x1i-666 in qliphort.exe: Access violation writing location 0x00-000
+
+Continue, ignoring this error? ...[ ]
+
+Xlmgzxg drgs gsv Hzxivw Givv rh uliyrwwvm. Gsv hxlfitv szh yvvm fmovzhsvw.''+ID: 51194046
+","
+Name: Qliphort Scout+Level: 5+Type: Pendulum Normal Monster Machine+Attribute: EARTH+Archetype: Qli+Scale: 9+Atk: 1000+Def: 2800+[ Pendulum Effect ] 
+You cannot Special Summon monsters, except \"Qli\" monsters. This effect cannot be negated. Once per turn: You can pay 800 LP; add 1 \"Qli\" card from your Deck to your hand, except \"Qliphort Scout\".
+
+[ Monster Effect ] 
+''Booting in Replica Mode...
+
+An error has occurred while executing C:\\sophia\\zefra.exe
+
+Unknown publisher.
+
+Allow C:\\tierra\\qliphort.exe ? ...[Y]
+
+Booting in Autonomy Mode...''+ID: 65518099
+","
+Name: Risebell the Summoner+Level: 3+Type: Pendulum Normal Monster Psychic+Attribute: WIND+Archetype: Risebell+Scale: 2+Atk: 800+Def: 800+[ Pendulum Effect ] 
+Once per turn: You can target 1 face-up monster on the field; increase its Level by 1 (even if this card leaves the field).
+
+[ Monster Effect ] 
+''A kindly elder brother, Risebell takes good care of his little sister Saambell. He reads a Magical Book with his sister each early-afternoon, a harmonious routine that brings a smile to everyone.''+ID: 45103815
+","
+Name: Sea Dragoons of Draconia+Level: 3+Type: Pendulum Normal Monster Sea Serpent+Attribute: WATER+Archetype: Draconia+Scale: 7+Atk: 200+Def: 2100+[ Pendulum Effect ] 
+When a monster is destroyed by battle: You can Special Summon 1 Normal Monster from your hand. You can only use this effect of \"Sea Dragoons of Draconia\" once per turn.
+
+[ Monster Effect ] 
+''Silently creeping in from the deep sea, elite black ops marine troops of the Draconia Empire wage an endless battle against the hated Principality of Dinon on the sea's opposite shores.''+ID: 82114013
+","
+Name: Sky Dragoons of Draconia+Level: 5+Type: Pendulum Normal Monster Winged Beast+Attribute: WIND+Archetype: Draconia+Scale: 7+Atk: 2200+Def: 200+[ Pendulum Effect ] 
+Once per turn, when a Normal Monster you control inflicts battle damage to your opponent: You can target 1 card on the field; destroy it.
+
+[ Monster Effect ] 
+''Rumored as being formed to invade the neutral, floating Sky-State of Cxulub, these mounted air troops of the Draconia Empire have prompted bordering nations to strengthen their security.''+ID: 68182934
+","
+Name: Tempura of Fortune - EBI+Level: 3+Type: Pendulum Normal Monster Aqua+Attribute: FIRE+Archetype: null+Scale: 8+Atk: 1600+Def: 0+[ Pendulum Effect ] 
+You can target 1 card in your Pendulum Zone; toss a coin.
+
+\u25cf Heads: Special Summon it.
+
+\u25cf Tails: Destroy it, but lose LP equal to its Pendulum Scale x 300.
+
+You can only use this effect of \"Tempura of Fortune - EBI\" once per turn.
+
+[ Monster Effect ] 
+''We went to EDO-FRONT, which has been the talk of the town. The scale of the Tempura here is not only large but also so beautifully shaped that it has earned the nickname of \"Golden Tempura\". The state-of-the-art facilities and the atmosphere of other cultures are all in the harbor, but there is also a mellow, nostalgic aroma in the air, and the occasional crackle of the crackling sounds will lift your spirits. We have been looking forward to this cruise for a year, but I think 3 stars is just about right.''+ID: 86304179
+","
+Name: Vector Pendulum, the Dracoverlord+Level: 4+Type: Pendulum Normal Monster Dragon+Attribute: DARK+Archetype: Pendulum+Scale: 3+Atk: 1850+Def: 0+[ Pendulum Effect ] 
+Negate all card effects in your opponent's Pendulum Zones.
+
+[ Monster Effect ] 
+''This Overlord overran an entire world with his army of Dracofiends, using his Dragon Alchemy to convert all life into his terrible minions. The source of this power is unidentified, and probably extra-dimensional.''+ID: 69512157
+","
