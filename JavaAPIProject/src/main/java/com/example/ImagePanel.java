@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 public class ImagePanel extends JPanel{
     Point previusPoint;
+    MainWindow mw;
     int handX=300;
     int cardHeight,cardWidth;
     ArrayList<DraggableImage> images= new ArrayList<>();
@@ -19,6 +20,7 @@ public class ImagePanel extends JPanel{
     Point dragStartPoint;
     DraggableImage draggedImage;
     public ImagePanel(WestPanel ta, MainWindow wContainer){
+        mw=wContainer;
         setLayout(null);
         Border lineBorder = BorderFactory.createLineBorder(Color.BLACK, 2);
         setBorder(lineBorder);
@@ -34,7 +36,7 @@ public class ImagePanel extends JPanel{
         for(int i=0;i<28;i++){
             JLabel jLabel=new JLabel(currenttext);
             jLabel.setName(playerID);
-            jLabel.setBounds(0, 0, 83, 100);
+            jLabel.setBounds(0, 0, cardWidth, cardHeight);
             jLabel.setBorder(lineBorder);
             add(jLabel);
             zones.add(jLabel);
@@ -137,8 +139,8 @@ public class ImagePanel extends JPanel{
             images.add(image);
             repaint();
             if(location.equals("hand")){
-                image.setLocation(handX, 690);
-                image.start=new Point(handX,690);
+                image.setLocation(handX, (int)(mw.getHeight()-1.6*cardHeight));
+                image.start=new Point(handX,(int)(mw.getHeight()-1.6*cardHeight));
                 image.setName("Player1");
                 handX+=cardWidth;
             }
