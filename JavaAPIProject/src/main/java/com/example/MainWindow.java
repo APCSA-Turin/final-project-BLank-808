@@ -1,6 +1,5 @@
 package com.example;
-import javax.swing.JFrame;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import javax.swing.border.Border;
 
 import java.awt.*;
@@ -13,7 +12,10 @@ class MainWindow extends JFrame{
         setLayout(new BorderLayout());
         window.setTitle("Very poorly done YU-GI-OH");
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        window.setSize(10000,10000);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        window.setSize(screenSize);
+        setSize(screenSize);
         window.setLocationRelativeTo(null);
         WestPanel infoPanel= new WestPanel();
         window.add(infoPanel,BorderLayout.WEST);
@@ -24,6 +26,31 @@ class MainWindow extends JFrame{
 
     public void show(){
         window.setVisible(true);
+    }
+
+    public void lose(){
+        JOptionPane.showMessageDialog(window, "You're just a third-rate duelist with a fourth-rate deck!", "You lose", JOptionPane.ERROR_MESSAGE);
+        String[] options = {"Retry", "Cancel"};
+        int choice = JOptionPane.showOptionDialog(
+                null,
+                "Do you want to retry?",
+                "Error",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.ERROR_MESSAGE,
+                null,
+                options,
+                options[1] // Default option
+        );
+
+        if (choice == 0) {
+            imagePanel.reset();
+        } else {
+
+        }
+    }
+
+    public void win(){
+        JOptionPane.showMessageDialog(window, "You're just a third-rate duelist with a fourth-rate deck!", "You lose", JOptionPane.ERROR_MESSAGE);
     }
 
     public void card(Card card, String location){

@@ -11,19 +11,24 @@ import java.util.ArrayList;
 public class ImagePanel extends JPanel{
     Point previusPoint;
     int handX=300;
+    int cardHeight,cardWidth;
     ArrayList<DraggableImage> images= new ArrayList<>();
     ArrayList<JLabel> zones= new ArrayList<>();
     JTextArea iArea;
     JTextArea HpDisplay;
     Point dragStartPoint;
     DraggableImage draggedImage;
-    public ImagePanel(WestPanel ta, Container wContainer){
+    public ImagePanel(WestPanel ta, MainWindow wContainer){
         setLayout(null);
         Border lineBorder = BorderFactory.createLineBorder(Color.BLACK, 2);
         setBorder(lineBorder);
         iArea=ta.iArea;
         HpDisplay=ta.HpDisplay;
-        int y=580;
+        int y=(int)(wContainer.getHeight()/1.55)-(cardHeight+10);
+        System.out.println(wContainer.getHeight());
+        cardHeight=(int)(wContainer.getHeight()* 0.116);
+        System.out.println(wContainer.getWidth());
+        cardWidth=(int)(wContainer.getWidth()*0.054);
         String currenttext="Spell/Trap Zone";
         String playerID="Player1";
         for(int i=0;i<28;i++){
@@ -36,16 +41,16 @@ public class ImagePanel extends JPanel{
             jLabel.setLocation(250+((i%7)*90), y);
             switch (i) {
                 case 6:
-                    y=485;
+                    y-= cardHeight+5;
                     currenttext="Monster zone";
                     break; 
                 case 13:
-                    y=285;
+                    y-= (2*cardHeight)+5;
                     playerID="Player2";
                     currenttext= "Monster zone";
                     break;
                 case 20:
-                    y=180;
+                    y-= cardHeight+5;
                     currenttext = "Spell/Trap Zone";
                     break;
                 default:
@@ -71,11 +76,19 @@ public class ImagePanel extends JPanel{
                         if(draggedImage.c.atk<other.c.atk){
                             App.Hp+= draggedImage.c.atk - other.c.atk;
                             remove(draggedImage);
+                            images.remove(draggedImage);
                             HpDisplay.setText(String.valueOf(App.Hp));
+                            if(App.Hp<=0){
+                                wContainer.lose();
+                            }
                         }else if(draggedImage.c.atk>other.c.atk){
                             App.Hp2+= draggedImage.c.atk - other.c.atk;
                             other.setSize(10,10);
                             remove(other);
+                            images.remove(other);
+                            if(App.Hp2<=0){
+                                wContainer.win();
+                            }
                         }
                         repaint();
                     }
@@ -100,28 +113,24 @@ public class ImagePanel extends JPanel{
                 }
             }
         });
-
         setVisible(true);
     }
 
-    private void addImage(String imagePath, int x, int y) {
-        try{
-            ImageIcon icon = new ImageIcon(imagePath);
-            icon.setImage(icon.getImage().getScaledInstance(160, 210, Image.SCALE_DEFAULT));
-            DraggableImage image = new DraggableImage(icon);
-            image.setBounds(x, y, icon.getIconWidth(), icon.getIconHeight());
-            add(image);
-            images.add(image);
-            repaint();
-        } catch (Exception e){
-            System.err.println("Error loading or adding image: " + e.getMessage());
+    public void reset(){
+        for (int i = images.size() - 1; i >= 0; i--) {
+            remove(images.get(0));
         }
+        App.Hp=8000;
+        HpDisplay.setText("8000");
+        iArea.setText("Info");
+        App.Hp2=8000;
+        repaint();
     }
 
     public void addCardImage(String imagePath, Card c, String location) {
         try{
             ImageIcon icon = new ImageIcon(imagePath);
-            icon.setImage(icon.getImage().getScaledInstance(83, 100, Image.SCALE_DEFAULT));
+            icon.setImage(icon.getImage().getScaledInstance(cardWidth, cardHeight, Image.SCALE_DEFAULT));
             DraggableImage image = new DraggableImage(icon,c);
             image.setBounds(0,0,icon.getIconWidth(), icon.getIconHeight());
             add(image);
@@ -131,13 +140,13 @@ public class ImagePanel extends JPanel{
                 image.setLocation(handX, 690);
                 image.start=new Point(handX,690);
                 image.setName("Player1");
-                handX+=84;
+                handX+=cardWidth;
             }
             if(location.equals("handE")){
                 image.setLocation(handX, -10);
                 image.start=new Point(handX,-10);
                 image.setName("Player2");
-                handX+=84;
+                handX+=cardWidth;
             }
         } catch (Exception e){
             System.err.println("Error loading or adding image: " + e.getMessage());
