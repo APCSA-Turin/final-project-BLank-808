@@ -14,7 +14,7 @@ public class ImagePanel extends JPanel{
     int handX=300;
     int cardHeight,cardWidth;
     ArrayList<DraggableImage> images= new ArrayList<>();
-    ArrayList<JLabel> zones= new ArrayList<>();
+    ArrayList<Zone> zones= new ArrayList<>();
     JTextArea iArea;
     JTextArea HpDisplay;
     Point dragStartPoint;
@@ -34,7 +34,7 @@ public class ImagePanel extends JPanel{
         String currenttext="Spell/Trap Zone";
         String playerID="Player1";
         for(int i=0;i<28;i++){
-            JLabel jLabel=new JLabel(currenttext);
+            Zone jLabel=new Zone(currenttext);
             jLabel.setName(playerID);
             jLabel.setBounds(0, 0, cardWidth, cardHeight);
             jLabel.setBorder(lineBorder);
@@ -74,11 +74,13 @@ public class ImagePanel extends JPanel{
             public void mouseReleased(MouseEvent e) {
                     DraggableImage other=getDraggableImageAt(e.getPoint(), draggedImage);
                     System.out.println(other);
+                    Zone zone=getZoneAt(e.getPoint());
                     if(other!=null && !draggedImage.getName().equals(other.getName())){
                         if(draggedImage.c.atk<other.c.atk){
                             App.Hp+= draggedImage.c.atk - other.c.atk;
                             remove(draggedImage);
                             images.remove(draggedImage);
+                            getZoneAt(dragStartPoint).empty();
                             HpDisplay.setText(String.valueOf(App.Hp));
                             if(App.Hp<=0){
                                 wContainer.lose();
@@ -88,15 +90,16 @@ public class ImagePanel extends JPanel{
                             other.setSize(10,10);
                             remove(other);
                             images.remove(other);
+                            zone.empty();
                             if(App.Hp2<=0){
                                 wContainer.win();
                             }
                         }
                         repaint();
                     }
-                JLabel zone=getZoneAt(e.getPoint());
                 if(zone!=null && zone.getName().equals(draggedImage.getName())){
-                        draggedImage.start=getZoneAt(e.getPoint()).getLocation();
+                    draggedImage.start=zone.getLocation();
+                    zone.occupy();
                 }
                 draggedImage.setLocation(draggedImage.start);
                 draggedImage = null;
@@ -175,9 +178,9 @@ public class ImagePanel extends JPanel{
         return null;
     }
 
-        private JLabel getZoneAt(Point point) {
+        private Zone getZoneAt(Point point) {
         for (int i = zones.size() - 1; i >= 0; i--) {
-            JLabel zone = zones.get(i);
+            Zone zone = zones.get(i);
             if (zone.getBounds().contains(point)) {
                 return zone;
             }
@@ -188,13 +191,30 @@ public class ImagePanel extends JPanel{
     private class DraggableImage extends JLabel {
         Card c;
         Point start;
-        public DraggableImage(ImageIcon icon) {
-            super(icon);
-        }
 
         public DraggableImage(ImageIcon icon,Card card) {
             super(icon);
             c=card;
+        }
+    }
+
+    private class Zone extends JLabel{
+        String type;
+        boolean inUse;
+        public Zone(String type){
+            super(type);
+            this.type=type;
+            inUse=false;
+        }
+
+        public void occupy(){
+            inUse=true;
+            setText(" ");
+        }
+
+        public void empty(){
+            inUse=false;
+            setText(type);
         }
     }
 }
