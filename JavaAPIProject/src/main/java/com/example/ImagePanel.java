@@ -80,7 +80,7 @@ public class ImagePanel extends JPanel{
                             App.Hp+= draggedImage.c.atk - other.c.atk;
                             remove(draggedImage);
                             images.remove(draggedImage);
-                            getZoneAt(dragStartPoint).empty();
+                            getZoneAt(draggedImage.start).empty();
                             HpDisplay.setText(String.valueOf(App.Hp));
                             if(App.Hp<=0){
                                 wContainer.lose();
@@ -97,9 +97,11 @@ public class ImagePanel extends JPanel{
                         }
                         repaint();
                     }
-                if(zone!=null && zone.getName().equals(draggedImage.getName())){
-                    draggedImage.start=zone.getLocation();
-                    zone.occupy();
+                if(zone!=null && zone.getName().equals(draggedImage.getName())&& zone.inUse!=true){
+                    if(getZoneAt(draggedImage.start)==null){
+                        draggedImage.start=zone.getLocation();
+                        zone.occupy();
+                    }
                 }
                 draggedImage.setLocation(draggedImage.start);
                 draggedImage = null;
