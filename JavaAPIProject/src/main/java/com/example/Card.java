@@ -12,7 +12,9 @@ public class Card{
         fullData.replace(":", "\":\"");
         name= fullData.substring(fullData.indexOf("\"name\":\"")+8,fullData.indexOf("\",\"type"));
         type= fullData.substring(fullData.indexOf("\"type\":\"")+8,fullData.indexOf("\",\"h"));
+        if(fullData.indexOf("attribute\":\"")>0){
         attribute= fullData.substring(fullData.indexOf("attribute\":\"")+12,(fullData.substring(fullData.indexOf("attribute\":\"")+12).indexOf("\"")+fullData.indexOf("attribute\":\"")+12));
+        }
         race= fullData.substring(fullData.indexOf("race\":\"")+7,(fullData.substring(fullData.indexOf("race\":\"")+7).indexOf("\"")+fullData.indexOf("race\":\"")+7));
         if(fullData.indexOf("archetype")>=0){
         archetype= fullData.substring(fullData.indexOf("archetype")+12,(fullData.substring(fullData.indexOf("archetype")+12).indexOf("\"")+fullData.indexOf("archetype")+12));
@@ -29,6 +31,8 @@ public class Card{
          atk= Integer.valueOf(fullData.substring(fullData.indexOf("\"atk\":")+6, fullData.indexOf(",\"def\":")));
          def= Integer.valueOf(fullData.substring(fullData.indexOf("\"def\":")+6,fullData.indexOf(",\"level\":") ));
          level= Integer.valueOf(fullData.substring(fullData.indexOf("\"level\":")+8,fullData.indexOf(",\"attribute\":") ));
+        }else{
+            atk=-1;
         }
         desc=fullData.substring(fullData.indexOf("desc\":\"")+7,fullData.indexOf("\",\"race"));
         desc=desc.replace(":", ";");
@@ -37,11 +41,15 @@ public class Card{
          content.append("Name: " + name +"+");
          content.append("Level: " + level +"+");
          content.append("Type: " + type+" "+race +"+");
+         if(atk!=0){
          content.append("Attribute: " + attribute +"+");
+         }
          content.append("Archetype: " + archetype +"+");
+         if(atk!=-1){
          content.append("Scale: " + scale +"+");
          content.append("Atk: " + atk +"+");
          content.append("Def: " + def +"+");
+         }
          content.append(desc);
          fullData=content.toString();
 
