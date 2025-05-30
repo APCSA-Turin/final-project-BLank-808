@@ -6,6 +6,7 @@ import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
@@ -28,10 +29,11 @@ public class WestPanel extends JPanel{
         iArea.setFont(new Font("Base", 1,13));
         iArea.setIgnoreRepaint(true);
         iArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(iArea);
         HpDisplay.setEditable(false);
         Border lineBorder = BorderFactory.createLineBorder(Color.BLACK, 2);
         HpDisplay.setBorder(lineBorder);
-        add(iArea,BorderLayout.WEST);
+        add(scrollPane,BorderLayout.WEST);
         add(HpDisplay, BorderLayout.NORTH);
     }
 }

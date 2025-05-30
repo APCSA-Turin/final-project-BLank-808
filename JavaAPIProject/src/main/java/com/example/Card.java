@@ -1,11 +1,8 @@
 package com.example;
-import java.util.Scanner;
-import java.util.jar.Attributes.Name;
-import java.io.File;
 import java.lang.StringBuilder;
 public class Card{
     String fullData;
-    String name,attribute,archetype,imageURL,type,race,id, desc;
+    String name,attribute,archetype,imageURL,type,race,id, desc, ct;
     int atk,def,level,scale;
     public Card (String str, boolean addCardToList){
         fullData=reformat(str);
@@ -41,7 +38,7 @@ public class Card{
          content.append("Name: " + name +"+");
          content.append("Level: " + level +"+");
          content.append("Type: " + type+" "+race +"+");
-         if(atk!=0){
+         if(atk!=-1){
          content.append("Attribute: " + attribute +"+");
          }
          content.append("Archetype: " + archetype +"+");
@@ -61,7 +58,6 @@ public class Card{
 
     public Card(String savedDesc){
         String[] temp= savedDesc.split(": ");
-        System.out.println(temp[8]);
         name= temp[1].substring(0,temp[1].indexOf("+"));
         level= Integer.valueOf(temp[2].substring(0,temp[2].indexOf("+")));
         type= temp[3].substring(0,temp[3].indexOf("+"));
@@ -73,8 +69,13 @@ public class Card{
         desc=temp[8].substring(temp[8].indexOf("+"), temp[8].indexOf("+ID")).replace(";", ":");
         id= temp[9];
 
+        ct="Monster";
+        if (type.contains("Pendulum")){
+        ct+= "Spell";
+        }
+
         StringBuilder content= new StringBuilder();
-         content.append("Name: " + name +"+");
+         content.append("\nName: " + name +"+");
          content.append("Level: " + level +"+");
          content.append("Type: " + type +"+");
          content.append("Attribute: " + attribute +"+");
@@ -82,7 +83,28 @@ public class Card{
          content.append("Scale: " + scale +"+");
          content.append("Atk: " + atk +"+");
          content.append("Def: " + def +"+");
-         content.append(desc);
+         content.append(desc+"\n");
+         fullData=content.toString();
+    }
+
+        public Card(String savedDesc, int speed){
+        String[] temp= savedDesc.split(": ");
+        name= temp[1].substring(0,temp[1].indexOf("+"));
+        type= temp[2].substring(0,temp[2].indexOf("+"));
+        archetype= temp[3].substring(0,temp[3].indexOf("+"));
+        desc=temp[4].substring(temp[4].indexOf("+"), temp[4].indexOf("+ID")).replace(";", ":");
+        id= temp[5];
+
+        StringBuilder content= new StringBuilder();
+         content.append("\nName: " + name +"+");
+         content.append("Level: " + level +"+");
+         content.append("Type: " + type +"+");
+         content.append("Attribute: " + attribute +"+");
+         content.append("Archetype: " + archetype +"+");
+         content.append("Scale: " + scale +"+");
+         content.append("Atk: " + atk +"+");
+         content.append("Def: " + def +"+");
+         content.append(desc+"\n");
          fullData=content.toString();
     }
 

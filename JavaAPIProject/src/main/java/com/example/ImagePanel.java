@@ -1,11 +1,12 @@
 package com.example;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class ImagePanel extends JPanel{
@@ -15,8 +16,8 @@ public class ImagePanel extends JPanel{
     int cardHeight,cardWidth;
     ArrayList<DraggableImage> images= new ArrayList<>();
     ArrayList<Zone> zones= new ArrayList<>();
-    JTextArea iArea;
-    JTextArea HpDisplay;
+    Zone Graveyard1, Graveyard2;
+    JTextArea iArea, HpDisplay;
     Point dragStartPoint;
     DraggableImage draggedImage;
     public ImagePanel(WestPanel ta, MainWindow wContainer){
@@ -27,9 +28,7 @@ public class ImagePanel extends JPanel{
         iArea=ta.iArea;
         HpDisplay=ta.HpDisplay;
         int y=(int)(wContainer.getHeight()/1.55)-(cardHeight+10);
-        System.out.println(wContainer.getHeight());
         cardHeight=(int)(wContainer.getHeight()* 0.116);
-        System.out.println(wContainer.getWidth());
         cardWidth=(int)(wContainer.getWidth()*0.054);
         String currenttext="Spell/Trap Zone";
         String playerID="Player1";
@@ -40,16 +39,27 @@ public class ImagePanel extends JPanel{
             jLabel.setBorder(lineBorder);
             add(jLabel);
             zones.add(jLabel);
+            jLabel.setAlignmentX(JLabel.CENTER_ALIGNMENT);
             jLabel.setLocation(250+((i%7)*90), y);
             switch (i) {
+                case 0:
+                    jLabel.setType("Extra deck");
+                    break;
                 case 6:
                     y-= cardHeight+5;
                     currenttext="Monster zone";
-                    break; 
+                    jLabel.setType("Main deck");
+                    break;
+                    
+                case 7:
+                    jLabel.setType("Field Zone");
+                    break;
                 case 13:
                     y-= (2*cardHeight)+5;
                     playerID="Player2";
                     currenttext= "Monster zone";
+                    jLabel.setType("Graveyard");
+                    Graveyard1=jLabel;
                     break;
                 case 20:
                     y-= cardHeight+5;
@@ -65,7 +75,7 @@ public class ImagePanel extends JPanel{
             public void mousePressed(MouseEvent e) {
                 dragStartPoint = e.getPoint();
                 draggedImage = getDraggableImageAt(dragStartPoint);
-                if(draggedImage.c!=null){
+                if(draggedImage.c!=null && draggedImage.interacable){
                     iArea.setText(draggedImage.c.toString());
                 }
             }
@@ -73,20 +83,22 @@ public class ImagePanel extends JPanel{
             @Override
             public void mouseReleased(MouseEvent e) {
                     DraggableImage other=getDraggableImageAt(e.getPoint(), draggedImage);
-                    System.out.println(other);
                     Zone zone=getZoneAt(e.getPoint());
                     if(other!=null && !draggedImage.getName().equals(other.getName())){
-                        if(draggedImage.c.atk<other.c.atk){
-                            App.Hp+= draggedImage.c.atk - other.c.atk;
+                        if(draggedImage.stat<other.stat){
+                            App.Hp+= draggedImage.stat - other.stat;
+                            if(!other.rotated){
                             remove(draggedImage);
                             images.remove(draggedImage);
                             getZoneAt(draggedImage.start).empty();
+                            Graveyard1.contains.add(draggedImage.c);
+                            }
                             HpDisplay.setText(String.valueOf(App.Hp));
                             if(App.Hp<=0){
                                 wContainer.lose();
                             }
-                        }else if(draggedImage.c.atk>other.c.atk){
-                            App.Hp2+= draggedImage.c.atk - other.c.atk;
+                        }else if(draggedImage.stat>other.stat){
+                            App.Hp2+= draggedImage.stat - other.stat;
                             other.setSize(10,10);
                             remove(other);
                             images.remove(other);
@@ -97,7 +109,7 @@ public class ImagePanel extends JPanel{
                         }
                         repaint();
                     }
-                if(zone!=null && zone.getName().equals(draggedImage.getName())&& zone.inUse!=true){
+                if(zone!=null && zone.getName().equals(draggedImage.getName()) && zone.type.contains(draggedImage.c.ct)&& zone.inUse!=true){
                     if(getZoneAt(draggedImage.start)==null){
                         draggedImage.start=zone.getLocation();
                         zone.occupy();
@@ -105,6 +117,21 @@ public class ImagePanel extends JPanel{
                 }
                 draggedImage.setLocation(draggedImage.start);
                 draggedImage = null;
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent e){
+                if(e.getClickCount()==2){
+                draggedImage= getDraggableImageAt(e.getPoint());
+                if(draggedImage!=null & draggedImage.interacable){
+                draggedImage.rotateClockwise90(draggedImage.toBuffered());
+                }
+                System.out.println("Double clicked");
+                }
+
+                if(getZoneAt(e.getPoint()).type.equals("Graveyard")){
+                    iArea.setText(getZoneAt(e.getPoint()).contains.toString());
+                }
             }
         });
 
@@ -192,21 +219,77 @@ public class ImagePanel extends JPanel{
 
     private class DraggableImage extends JLabel {
         Card c;
+        boolean rotated=false;
+        boolean interacable=true;
         Point start;
+        int stat;
 
         public DraggableImage(ImageIcon icon,Card card) {
             super(icon);
             c=card;
+            stat=c.atk;
+        }
+        
+        public void rotateClockwise90(BufferedImage src) {
+            int width = src.getWidth();
+            int height = src.getHeight();
+            BufferedImage dest = new BufferedImage(height, width, src.getType());
+
+            Graphics2D graphics2D = dest.createGraphics();
+            graphics2D.translate((height - width) / 2, (height - width) / 2);
+            if(rotated==false){
+            graphics2D.rotate(Math.PI / 2, height / 2.0, width / 2.0);
+            rotated=true;
+            stat=c.def;
+            }else{
+            for(int i=0; i<3;i++){
+            graphics2D.rotate(Math.PI / 2, height / 2.0, width / 2.0);
+            ((ImageIcon)getIcon()).setImage(dest);
+            width = toBuffered().getWidth();
+            height = toBuffered().getHeight();
+            }
+            rotated=false;
+            stat=c.atk;
+            }
+            graphics2D.drawRenderedImage(src, null);
+            ((ImageIcon)getIcon()).setImage(dest);
+            repaint();
+        }
+
+        private BufferedImage toBuffered(){{
+            Image img= ((ImageIcon)getIcon()).getImage();
+
+            // Create a buffered image with transparency
+            BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+
+            // Draw the image on to the buffered image
+            Graphics2D bGr = bimage.createGraphics();
+            bGr.drawImage(img, 0, 0, null);
+            bGr.dispose();
+
+            // Return the buffered image
+            return bimage;
+            }
         }
     }
 
     private class Zone extends JLabel{
         String type;
         boolean inUse;
+        ArrayList<Card> contains;
         public Zone(String type){
             super(type);
             this.type=type;
             inUse=false;
+        }
+
+        public void setType(String str){
+            setText(str);
+            type=str;
+            if(type.equals("Graveyard") || type.contains("deck")){
+                inUse=true;
+                contains=new ArrayList<>();
+            }
         }
 
         public void occupy(){

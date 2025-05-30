@@ -1621,3 +1621,104 @@ Negate all card effects in your opponent's Pendulum Zones.
 [ Monster Effect ] 
 ''This Overlord overran an entire world with his army of Dracofiends, using his Dragon Alchemy to convert all life into his terrible minions. The source of this power is unidentified, and probably extra-dimensional.''+ID: 69512157
 ","
+Name: A Legendary Ocean+Level: 0+Type: Spell Card Field+Archetype: Umi+(This card's name is always treated as \"Umi\".)
+
+All WATER monsters on the field gain 200 ATK/DEF. Reduce the Level of all WATER monsters in both players' hands and on the field by 1.+ID: 295517
+","
+Name: Acidic Downpour+Level: 0+Type: Spell Card Field+Archetype: null+All EARTH monsters lose 500 ATK and gain 400 DEF.+ID: 35956022
+","
+Name: Adamancipator Laputite+Level: 0+Type: Spell Card Field+Archetype: Adamancipator+All Rock monsters you control gain 500 ATK/DEF. Once per turn, during your Main Phase; You can take up to 5 \"Adamancipator\" cards from your Deck and place them on top of your Deck in any order.+ID: 46552140
+","
+Name: Archfiend Palabyrinth+Level: 0+Type: Spell Card Field+Archetype: Archfiend+All Fiend-Type monsters you control gain 500 ATK. You can target 1 \"Archfiend\" monster you control; banish 1 other Fiend-Type monster you control, and if you do, Special Summon from your hand, Deck, or Graveyard, 1 \"Archfiend\" monster with same Level as the targeted monster. You can only use this effect of \"Archfiend Palabyrinth\" once per turn.+ID: 63883999
+","
+Name: Canyon+Level: 0+Type: Spell Card Field+Archetype: null+If a Rock-Type monster in Defense Position is attacked, double any Battle Damage to the controller of the attacking monster.+ID: 28120197
+","
+Name: Catapult Zone+Level: 0+Type: Spell Card Field+Archetype: null+Once per turn, if a monster you control would be destroyed by battle, you can send 1 Rock-Type monster from your Deck to the Graveyard instead.+ID: 14289852
+","
+Name: Celestia+Level: 0+Type: Spell Card Field+Archetype: null+All Wyrm-Type monsters gain 300 ATK and DEF. Once per turn; You can banish 3 Wyrm-Type monsters from your Graveyard, then target 1 card on the field; destroy it.+ID: 43912676
+","
+Name: Ignition Phoenix+Level: 0+Type: Spell Card Field+Archetype: Igknight+All \"Igknight\" monsters on the field gain 300 ATK and DEF. Once per turn; You can target 1 \"Igknight\" card you control; destroy it, and if you do, add 1 \"Igknight\" card from your Deck to your hand.+ID: 79555535
+","
+Name: Jurassic World+Level: 0+Type: Spell Card Field+Archetype: null+All Dinosaur-Type monsters gain 300 ATK and DEF.+ID: 10080320
+","
+Name: Lost World+Level: 0+Type: Spell Card Field+Archetype: null+All monsters on the field lose 500 ATK and DEF, except Dinosaur-Type monsters. Once per turn, if a Dinosaur-Type monster is Normal or Special Summoned (except during the Damage Step); You can Special Summon 1 \"Jurraegg Token\" (Dinosaur-Type/EARTH/Level 1/ATK 0/DEF 0) to your opponent's field in Defense Position. While your opponent controls a Token, they cannot target monsters on the field with card effects, except Tokens. Once per turn, if a Normal Monster(s) on the field would be destroyed by battle or card effect, you can destroy that many Dinosaur-Type monsters in your hand and/or Deck instead.+ID: 17228908
+","
+Name: Luminous Spark+Level: 0+Type: Spell Card Field+Archetype: null+All LIGHT monsters gain 500 ATK and lose 400 DEF.+ID: 81777047
+","
+Name: Mountain+Level: 0+Type: Spell Card Field+Archetype: null+All Dragon, Winged Beast, and Thunder monsters on the field gain 200 ATK/DEF.+ID: 50913601
+","
+Name: Rising Air Current+Level: 0+Type: Spell Card Field+Archetype: null+All WIND monsters gain 500 ATK and lose 400 DEF.+ID: 45778932
+","
+Name: Mystic Plasma Zone+Level: 0+Type: Spell Card Field+Archetype: null+Increase the ATK of all DARK monsters by 500 points and decreases their DEF by 400 points.+ID: 18161786
+","
+Name: Temple of the Mind's Eye+Level: 0+Type: Spell Card Field+Archetype: null+Any battle damage a player takes becomes 1000.+ID: 92481084
+","
+Name: The Sanctuary in the Sky+Level: 0+Type: Spell Card Field+Archetype: The Agent+Battle damage to the controller of a Fairy monster from a battle involving that monster becomes 0.+ID: 56433456
+","
+Name: Action Magic - Double Banking+Level: 0+Type: Spell Card Quick-Play+Archetype: null+Discard 1 card; this turn, if a monster you currently control destroys an opponent's monster by battle, it can make a second attack in a row. During your Main Phase, if this card is in your GY, except the turn this card was sent to the GY; You can discard 1 Spell; Set this card.+ID: 35498188
+","
+Name: Action Magic - Full Turn+Level: 0+Type: Spell Card Quick-Play+Archetype: null+This turn, double any battle damage that a player takes from battles involving 2 monsters. During your Main Phase, if this card is in your GY, except the turn this card was sent to the GY; You can discard 1 Spell; Set this card.+ID: 99004583
+","
+Name: Beast Fangs+Level: 0+Type: Spell Card Equip+Archetype: null+A Beast-Type monster equipped with this card increases its ATK and DEF by 300 points.+ID: 46009906
+","
+Name: Break! Draw!+Level: 0+Type: Spell Card Equip+Archetype: null+Equip only to a Machine monster. If the equipped monster destroys an opponent's monster by battle and sends it to the GY; Draw 1 card. Destroy this card during your 3rd End Phase after activation.+ID: 63851864
+","
+Name: Mirror Force+Level: 0+Type: Trap Card Normal+Archetype: null+When an opponent's monster declares an attack; Destroy all your opponent's Attack Position monsters.+ID: 44095762
+","
+Name: Spell Absorption+Level: 0+Type: Spell Card Continuous+Archetype: null+Each time a Spell Card is activated, gain 500 LP immediately after it resolves.+ID: 51481927
+","
+Name: De-Spell+Level: 0+Type: Spell Card Normal+Archetype: null+Target 1 face-up Spell, or 1 Set Spell/Trap, on the field; destroy that target if it is a Spell. (If the target is Set, reveal it.)+ID: 19159413
+","
+Name: Trap Hole of Spikes+Level: 0+Type: Trap Card Normal+Archetype: Hole+When an opponent's monster that was Normal or Special Summoned this turn declares an attack; Destroy that attacking monster, and if you do, inflict damage to your opponent equal to half the original ATK of that monster.+ID: 75902998
+","
+Name: Trap Hole+Level: 0+Type: Trap Card Normal+Archetype: Hole+When your opponent Normal or Flip Summons 1 monster with 1000 or more ATK; Target that monster; destroy that target.+ID: 4206964
+","
+Name: Quaking Mirror Force+Level: 0+Type: Trap Card Normal+Archetype: null+When an opponent's monster declares an attack; Change all your opponent's Attack Position monsters to face-down Defense Position. Monsters changed to face-down Defense Position by this effect cannot change their battle positions.+ID: 40838625
+","
+Name: Storming Mirror Force+Level: 0+Type: Trap Card Normal+Archetype: null+When an opponent's monster declares an attack; Return all your opponent's Attack Position monsters to the hand.+ID: 5650082
+","
+Name: Drowning Mirror Force+Level: 0+Type: Trap Card Normal+Archetype: null+When an opponent's monster declares a direct attack; Shuffle all your opponent's Attack Position monsters into the Deck.+ID: 47475363
+","
+Name: Broken Bamboo Sword+Level: 0+Type: Spell Card Equip+Archetype: Bamboo Sword+The equipped monster gains 0 ATK.+ID: 41587307
+","
+Name: Book of Secret Arts+Level: 0+Type: Spell Card Equip+Archetype: Book of+A Spellcaster-Type monster equipped with this card increases its ATK and DEF by 300 points.+ID: 91595718
+","
+Name: Book of Lunar Eclipse+Level: 0+Type: Spell Card Quick-Play+Archetype: Book of+Discard 1 card, then target 2 face-up monsters on the field; change them to face-down Defense Position.+ID: 31834488
+","
+Name: Book of Moon+Level: 0+Type: Spell Card Quick-Play+Archetype: Book of+Target 1 face-up monster on the field; change that target to face-down Defense Position.+ID: 14087893
+","
+Name: Birthright+Level: 0+Type: Trap Card Continuous+Archetype: null+Activate this card by targeting 1 Normal Monster in your Graveyard; Special Summon that target in face-up Attack Position. When this card leaves the field, destroy that monster. When that monster leaves the field, destroy this card.+ID: 35539880
+","
+Name: Banner of Courage+Level: 0+Type: Spell Card Continuous+Archetype: null+All monsters you control gain 200 ATK during your Battle Phase only.+ID: 10012614
+","
+Name: Backup Squad+Level: 0+Type: Spell Card Continuous+Archetype: null+Each time you take 1000 or more damage by your opponent's card effect or their monster's attack; Draw 1 card for every 1000 damage you took.+ID: 28486799
+","
+Name: Backfire+Level: 0+Type: Trap Card Continuous+Archetype: null+If a face-up FIRE monster(s) you control is destroyed and sent to the GY; Inflict 500 damage to your opponent.+ID: 82705573
+","
+Name: Axe of Fools+Level: 0+Type: Spell Card Equip+Archetype: null+The equipped monster gains 1000 ATK, also its effects are negated. Once per turn, during your Standby Phase; Inflict 500 damage to the controller of the equipped monster.+ID: 19578592
+","
+Name: Axe of Despair+Level: 0+Type: Spell Card Equip+Archetype: Archfiend+(This card is always treated as an \"Archfiend\" card.)
+The equipped monster gains 1000 ATK. When this card is sent from the field to the Graveyard; You can Tribute 1 monster; place this card on the top of your Deck.+ID: 40619825
+","
+Name: Astral Barrier+Level: 0+Type: Trap Card Continuous+Archetype: null+If your opponent's monster attacks a monster you control; You can make the attack a direct attack instead.+ID: 37053871
+","
+Name: Arrivalrivals+Level: 0+Type: Spell Card Quick-Play+Archetype: null+During the Battle Phase; Immediately after this effect resolves, Normal Summon 1 monster. You can only activate 1 \"Arrivalrivals\" per turn.+ID: 29508346
+","
+Name: Archfiend's Staff of Despair+Level: 0+Type: Spell Card Equip+Archetype: Archfiend+Equip only to a monster you control. During your Main Phase; You can make all monsters your opponent currently controls lose ATK equal to half the equipped monster's ATK, until the end of this turn (even if this card leaves the field). If this card is sent to the GY while equipped to a monster; You can pay 1000 LP; return this card to your hand. You can only use each effect of \"Archfiend's Staff of Despair\" once per turn.+ID: 21438286
+","
+Name: Anti-Magic Arrows+Level: 0+Type: Spell Card Quick-Play+Archetype: Anti+At the start of the Battle Phase; For the rest of this turn after this card resolves, Spell/Trap Cards, and their effects, cannot be activated. Cards and effects cannot be activated in response to this card's activation.+ID: 97120394
+","
+Name: 7+Level: 0+Type: Spell Card Continuous+Archetype: null+When there are 3 face-up \"7\" cards on your side of the field, draw 3 cards from your Deck. Then destroy all \"7\" cards. When this card is sent directly from the field to your Graveyard, increase your Life Points by 700 points.+ID: 67048711
+","
+Name: 7 Completed+Level: 0+Type: Spell Card Equip+Archetype: null+Activate this card by choosing ATK or DEF; equip only to a Machine monster. It gains 700 ATK or DEF, depending on the choice.+ID: 86198326
+","
+Name: Yami+Level: 0+Type: Spell Card Field+Archetype: null+All Fiend and Spellcaster monsters on the field gain 200 ATK/DEF, also all Fairy monsters on the field lose 200 ATK/DEF.+ID: 59197169
+","
+Name: Wetlands+Level: 0+Type: Spell Card Field+Archetype: null+All Aqua-Type/WATER/Level 2 or lower monsters gain 1200 ATK.+ID: 2084239
+","
+Name: Wasteland+Level: 0+Type: Spell Card Field+Archetype: null+All Dinosaur, Zombie, and Rock monsters on the field gain 200 ATK/DEF.+ID: 23424603
+","
+Name: Umiiruka+Level: 0+Type: Spell Card Field+Archetype: null+Increase the ATK of all WATER monsters by 500 points and decrease their DEF by 400 points.+ID: 82999629
+","
+Name: Umi+Level: 0+Type: Spell Card Field+Archetype: Umi+All Fish, Sea Serpent, Thunder, and Aqua monsters on the field gain 200 ATK/DEF, also all Machine and Pyro monsters on the field lose 200 ATK/DEF.+ID: 22702055
+","

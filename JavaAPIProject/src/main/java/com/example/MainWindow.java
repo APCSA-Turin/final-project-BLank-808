@@ -1,11 +1,14 @@
 package com.example;
 import javax.swing.*;
-import javax.swing.border.Border;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 class MainWindow extends JFrame{
     ImagePanel imagePanel;
+    int phase;
     private JFrame window;
     public MainWindow(){
         window=new JFrame();
@@ -21,11 +24,13 @@ class MainWindow extends JFrame{
         window.add(infoPanel,BorderLayout.WEST);
         //adds Image panel with selected info panel
         imagePanel= new ImagePanel(infoPanel,this);
+        window.add(new NorthPanel(), BorderLayout.NORTH);
         window.add(imagePanel);
     }
 
-    public void show(){
+    public void start(){
         window.setVisible(true);
+        phase=0;
     }
 
     public void lose(){
@@ -50,10 +55,65 @@ class MainWindow extends JFrame{
     }
 
     public void win(){
-        JOptionPane.showMessageDialog(window, "You're just a third-rate duelist with a fourth-rate deck!", "You lose", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(window, "You're quite the smart one!", "You Win", JOptionPane.ERROR_MESSAGE);
     }
 
     public void card(Card card, String location){
         imagePanel.addCardImage("JavaAPIProject/src/main/media/"+card.id+".jpg",card,location);
+    }
+
+    private class NorthPanel extends JPanel{
+
+            public NorthPanel(){
+                Button b= new Button("Main Phase 1");
+                b.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(phase<1){
+                        phase=1;
+                        b.setBackground(Color.LIGHT_GRAY);
+                    }
+                }
+            });
+            add(b);
+            Button b2= new Button("Battle Phase");
+                b2.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(phase<2){
+                        phase=2;
+                        b2.setBackground(Color.LIGHT_GRAY);
+                        b.setBackground(Color.WHITE);
+                    }
+                }
+            });
+            add(b2);
+            Button b3= new Button("Main Phase 2");
+                b3.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(phase<3){
+                        phase=3;
+                        b3.setBackground(Color.LIGHT_GRAY);
+                        b2.setBackground(Color.WHITE);
+                        b.setBackground(Color.WHITE);
+                    }
+                }
+            });
+            add(b3);
+            Button b4= new Button("End Turn");
+                b4.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(phase<4){
+                        phase=0;
+                        b3.setBackground(Color.WHITE);
+                        b2.setBackground(Color.WHITE);
+                        b.setBackground(Color.WHITE);
+                    }
+                }
+            });
+            add(b4);
+        }
     }
 }
