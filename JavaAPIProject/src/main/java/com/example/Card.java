@@ -46,7 +46,7 @@ public class Card{
          fullData=content.toString();
 
         if(addCardToList==true){
-        FileSaver.saveData(fullData+"+ID: "+ id+"\n\",\"");
+         FileSaver.saveData(fullData+"+ID: "+ id+"\n\",\"", "CardData.txt");
         FileSaver.saveCardImage(imageURL, id);
         }
     }

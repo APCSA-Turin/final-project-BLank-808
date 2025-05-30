@@ -10,8 +10,8 @@ import javax.imageio.ImageIO;
 import java.io.BufferedWriter;
 
 public class FileSaver {
-        public static void saveData(String data) {
-        try (BufferedWriter bw= new BufferedWriter(new FileWriter("CardData.txt", true))) {
+        public static void saveData(String data, String location) {
+        try (BufferedWriter bw= new BufferedWriter(new FileWriter(location, true))) {
             bw.write(data);
             bw.newLine();
         } catch (IOException e) {

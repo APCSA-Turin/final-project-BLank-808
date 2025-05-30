@@ -11,12 +11,11 @@ import java.util.ArrayList;
 public class ImagePanel extends JPanel{
     Point previusPoint;
     MainWindow mw;
-    int handX=300;
     int cardHeight,cardWidth;
-    ArrayList<DraggableImage> images= new ArrayList<>();
+    ArrayList<DraggableImage> images,hand1A,hand2A= new ArrayList<>();
     ArrayList<Zone> zones= new ArrayList<>();
-    JTextArea iArea;
-    JTextArea HpDisplay;
+    ArrayList<Card> hand1B,hand2B= new ArrayList<>();
+    JTextArea iArea,HpDisplay;
     Point dragStartPoint;
     DraggableImage draggedImage;
     public ImagePanel(WestPanel ta, MainWindow wContainer){
@@ -126,12 +125,33 @@ public class ImagePanel extends JPanel{
     public void reset(){
         for (int i = images.size() - 1; i >= 0; i--) {
             remove(images.get(0));
+            images.remove(0);
+        }
+        for (int i = hand1A.size() - 1; i >= 0; i--) {
+            remove(hand1A.get(0));
+            hand1A.remove(0);
+            hand1B.remove(0);
+        }
+        for (int i = hand2A.size() - 1; i >= 0; i--) {
+            remove(hand2A.get(0));
+            hand2A.remove(0);
+            hand2B.remove(0);
         }
         App.Hp=8000;
         HpDisplay.setText("8000");
         iArea.setText("Info");
         App.Hp2=8000;
         repaint();
+    }
+
+    @Override
+    public void repaint(){
+        for(DraggableImage di: hand1A){
+            di.setLocation(hand1A.indexOf(di)+cardWidth,(int)di.start.getY());
+        }
+        for(DraggableImage di: hand2A){
+            di.setLocation(hand1A.indexOf(di)+cardWidth,(int)di.start.getY());
+        }
     }
 
     public void addCardImage(String imagePath, Card c, String location) {
@@ -141,19 +161,18 @@ public class ImagePanel extends JPanel{
             DraggableImage image = new DraggableImage(icon,c);
             image.setBounds(0,0,icon.getIconWidth(), icon.getIconHeight());
             add(image);
-            images.add(image);
             repaint();
             if(location.equals("hand")){
+                int handX = hand1A.size()*cardWidth;
                 image.setLocation(handX, (int)(mw.getHeight()-1.6*cardHeight));
                 image.start=new Point(handX,(int)(mw.getHeight()-1.6*cardHeight));
                 image.setName("Player1");
-                handX+=cardWidth;
             }
             if(location.equals("handE")){
+                int handX = hand2A.size()*cardWidth;
                 image.setLocation(handX, -10);
                 image.start=new Point(handX,-10);
                 image.setName("Player2");
-                handX+=cardWidth;
             }
         } catch (Exception e){
             System.err.println("Error loading or adding image: " + e.getMessage());
