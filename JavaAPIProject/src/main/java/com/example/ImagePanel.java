@@ -219,13 +219,16 @@ public class ImagePanel extends JPanel{
 
     private class DraggableImage extends JLabel {
         Card c;
+        Image front;
         boolean rotated=false;
         boolean interacable=true;
+        boolean viewable;
         Point start;
         int stat;
 
         public DraggableImage(ImageIcon icon,Card card) {
             super(icon);
+            front=icon.getImage();
             c=card;
             stat=c.atk;
         }
@@ -269,6 +272,16 @@ public class ImagePanel extends JPanel{
 
             // Return the buffered image
             return bimage;
+            }
+        }
+
+        public void changeViewable(){
+            if(viewable){
+                viewable=false;
+                ((ImageIcon)getIcon()).setImage(Card.back);
+            }else{
+                viewable=true;
+                ((ImageIcon)getIcon()).setImage(front);
             }
         }
     }

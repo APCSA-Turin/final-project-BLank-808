@@ -1,9 +1,13 @@
 package com.example;
+import java.awt.Image;
 import java.lang.StringBuilder;
+
+import javax.swing.ImageIcon;
 public class Card{
     String fullData;
     String name,attribute,archetype,imageURL,type,race,id, desc, ct;
     int atk,def,level,scale;
+    public static Image back=new ImageIcon("JavaAPIProject\\src\\main\\media\\Back-EN.jpg").getImage();
     public Card (String str, boolean addCardToList){
         fullData=reformat(str);
         fullData.replace(":", "\":\"");
