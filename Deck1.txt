@@ -1,0 +1,30 @@
+Name: Alpha The Magnet Warrior+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: Magnet Warrior+Scale: -1+Atk: 1400+Def: 1700+''Alpha, Beta, and Gamma meld as one to form a powerful monster.''+ID: 99785935
+","
+Name: Ancient Jar+Level: 1+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 400+Def: 200+''A very fragile jar that contains something ancient and dangerous.''+ID: 81492226
+","
+Name: Barrel Rock+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1000+Def: 1300+''Shouldering a pair of machine guns, this monster is unstoppable.''+ID: 10476868
+","
+Name: Beta The Magnet Warrior+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: Magnet Warrior+Scale: -1+Atk: 1700+Def: 1600+''Alpha, Beta, and Gamma meld as one to form a powerful monster.''+ID: 39256679
+","
+Name: Beta The Magnet Warrior+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: Magnet Warrior+Scale: -1+Atk: 1700+Def: 1600+''Alpha, Beta, and Gamma meld as one to form a powerful monster.''+ID: 39256679
+","
+Name: Destroyer Golem+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1500+Def: 1000+A golem with a massive right hand for crushing its victims.+ID: 73481154
+","
+Name: Gem-Knight Crystal+Level: 7+Type: Normal Monster Rock+Attribute: EARTH+Archetype: Gem-+Scale: -1+Atk: 2450+Def: 1950+A Gem-Knight officer of high rank, who has optimized the use of the crystal powers. Despite his ability to overwhelm most opponents, he's wary of stretching himself too thin, and opts for solidarity with his comrades.+ID: 76908448
+","
+Name: Gem-Knight Crystal+Level: 7+Type: Normal Monster Rock+Attribute: EARTH+Archetype: Gem-+Scale: -1+Atk: 2450+Def: 1950+A Gem-Knight officer of high rank, who has optimized the use of the crystal powers. Despite his ability to overwhelm most opponents, he's wary of stretching himself too thin, and opts for solidarity with his comrades.+ID: 76908448
+","
+Name: Gem-Knight Lapis+Level: 3+Type: Normal Monster Rock+Attribute: EARTH+Archetype: Gem-+Scale: -1+Atk: 1200+Def: 100+The best of friends with Lazuli, this soldier deeply cares about the well-being of her friends.+ID: 99645428
+","
+Name: Canyon+Level: 0+Type: Spell Card Field+Archetype: null+If a Rock-Type monster in Defense Position is attacked, double any Battle Damage to the controller of the attacking monster.+ID: 28120197
+","
+Name: Canyon+Level: 0+Type: Spell Card Field+Archetype: null+If a Rock-Type monster in Defense Position is attacked, double any Battle Damage to the controller of the attacking monster.+ID: 28120197
+","
+Name: Canyon+Level: 0+Type: Spell Card Field+Archetype: null+If a Rock-Type monster in Defense Position is attacked, double any Battle Damage to the controller of the attacking monster.+ID: 28120197
+","
+Name: Axe of Fools+Level: 0+Type: Spell Card Equip+Archetype: null+The equipped monster gains 1000 ATK, also its effects are negated. Once per turn, during your Standby Phase; Inflict 500 damage to the controller of the equipped monster.+ID: 19578592
+","
+Name: Axe of Fools+Level: 0+Type: Spell Card Equip+Archetype: null+The equipped monster gains 1000 ATK, also its effects are negated. Once per turn, during your Standby Phase; Inflict 500 damage to the controller of the equipped monster.+ID: 19578592
+","
+Name: Axe of Fools+Level: 0+Type: Spell Card Equip+Archetype: null+The equipped monster gains 1000 ATK, also its effects are negated. Once per turn, during your Standby Phase; Inflict 500 damage to the controller of the equipped monster.+ID: 19578592
+","

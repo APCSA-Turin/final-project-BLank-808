@@ -1722,3 +1722,11 @@ Name: Umiiruka+Level: 0+Type: Spell Card Field+Archetype: null+Increase the ATK 
 ","
 Name: Umi+Level: 0+Type: Spell Card Field+Archetype: Umi+All Fish, Sea Serpent, Thunder, and Aqua monsters on the field gain 200 ATK/DEF, also all Machine and Pyro monsters on the field lose 200 ATK/DEF.+ID: 22702055
 ","
+Name: Dark Factory of Mass Production+Level: 0+Type: Spell Card Normal+Archetype: null+Target 2 Normal Monsters in your GY; add them to your hand.+ID: 90928333
+","
+Name: Heart of the Underdog+Level: 0+Type: Spell Card Continuous+Archetype: null+During your Draw Phase, when you draw a Normal Monster(s); You can reveal it; draw 1 more card.+ID: 35762283
+","
+Name: Summoner's Art+Level: 0+Type: Spell Card Normal+Archetype: null+Add 1 Level 5 or higher Normal Monster from your Deck to your hand.+ID: 79816536
+","
+Name: Ancient Rules+Level: 0+Type: Spell Card Normal+Archetype: null+Special Summon 1 Level 5 or higher Normal Monster from your hand.+ID: 10667321
+","

@@ -6,8 +6,10 @@ import javax.swing.ImageIcon;
 public class Card{
     String fullData;
     String name,attribute,archetype,imageURL,type,race,id, desc, ct;
-    int atk,def,level,scale;
-    public static Image back=new ImageIcon("JavaAPIProject\\src\\main\\media\\Back-EN.jpg").getImage();
+    Player  owner;
+    public int atk,def,level,scale;
+    static Image back=new ImageIcon("JavaAPIProject\\src\\main\\media\\Back.jpg").getImage();
+
     public Card (String str, boolean addCardToList){
         fullData=reformat(str);
         fullData.replace(":", "\":\"");
@@ -75,7 +77,7 @@ public class Card{
 
         ct="Monster";
         if (type.contains("Pendulum")){
-        ct+= "Spell";
+        ct+= " Spell";
         }
 
         StringBuilder content= new StringBuilder();
@@ -94,20 +96,14 @@ public class Card{
         public Card(String savedDesc, int speed){
         String[] temp= savedDesc.split(": ");
         name= temp[1].substring(0,temp[1].indexOf("+"));
-        type= temp[2].substring(0,temp[2].indexOf("+"));
-        archetype= temp[3].substring(0,temp[3].indexOf("+"));
+        type= temp[3].substring(0,temp[3].indexOf("+"));  
+        archetype= temp[4].substring(0,temp[4].indexOf("+"));
         desc=temp[4].substring(temp[4].indexOf("+"), temp[4].indexOf("+ID")).replace(";", ":");
         id= temp[5];
-
         StringBuilder content= new StringBuilder();
          content.append("\nName: " + name +"+");
-         content.append("Level: " + level +"+");
          content.append("Type: " + type +"+");
-         content.append("Attribute: " + attribute +"+");
          content.append("Archetype: " + archetype +"+");
-         content.append("Scale: " + scale +"+");
-         content.append("Atk: " + atk +"+");
-         content.append("Def: " + def +"+");
          content.append(desc+"\n");
          fullData=content.toString();
     }
@@ -120,6 +116,22 @@ public class Card{
         temp=temp.substring(temp.indexOf("\"n"), temp.indexOf("\"ygoprodeck_url")-1) +"\n" + temp.substring(temp.indexOf("image_url"), temp.indexOf("image_url_cropped"));
         return temp;
     }
+
+    public void updateText(){
+         StringBuilder content= new StringBuilder();
+         content.append("\nName: " + name +"+");
+         content.append("Level: " + level +"+");
+         content.append("Type: " + type +"+");
+         content.append("Attribute: " + attribute +"+");
+         content.append("Archetype: " + archetype +"+");
+         content.append("Scale: " + scale +"+");
+         content.append("Atk: " + atk +"+");
+         content.append("Def: " + def +"+");
+         content.append(desc+"\n");
+         fullData=content.toString();
+    }
+
+    public void activate(){}
 
     public String toString(){
         return fullData.replace("+", "\n");

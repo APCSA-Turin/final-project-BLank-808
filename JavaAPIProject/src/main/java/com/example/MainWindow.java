@@ -8,10 +8,12 @@ import java.awt.event.ActionListener;
 
 class MainWindow extends JFrame{
     ImagePanel imagePanel;
+    Player bot;
     int phase;
     private JFrame window;
-    public MainWindow(){
+    public MainWindow(Player p1, Player p2){
         window=new JFrame();
+        bot=p2;
         setLayout(new BorderLayout());
         window.setTitle("Very poorly done YU-GI-OH");
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -23,7 +25,7 @@ class MainWindow extends JFrame{
         WestPanel infoPanel= new WestPanel();
         window.add(infoPanel,BorderLayout.WEST);
         //adds Image panel with selected info panel
-        imagePanel= new ImagePanel(infoPanel,this);
+        imagePanel= new ImagePanel(infoPanel,this, p1,p2);
         window.add(new NorthPanel(), BorderLayout.NORTH);
         window.add(imagePanel);
     }
@@ -106,7 +108,12 @@ class MainWindow extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     if(phase<4){
-                        phase=0;
+                        phase=4;
+                        try {
+                            bot.Play(imagePanel.mw);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
                         b3.setBackground(Color.WHITE);
                         b2.setBackground(Color.WHITE);
                         b.setBackground(Color.WHITE);
