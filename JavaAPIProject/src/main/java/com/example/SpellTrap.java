@@ -201,7 +201,7 @@ public class SpellTrap extends Card{
                             }
                             if(board.getDraggableImageAt(zones.get(i).getLocation())!=null && board.getDraggableImageAt(zones.get(i).getLocation()).c.ct.contains("Monster")){
                                     onField.add(board.getDraggableImageAt(zones.get(i).getLocation()).c);
-                                    onFieldOptions.add(board.getDraggableImageAt(zones.get(i).getLocation()).c.name);
+                                    onFieldOptions.add(board.getDraggableImageAt(zones.get(i).getLocation()).c.name +" ("+board.getDraggableImageAt(zones.get(i).getLocation()).c.owner.Name+")");
                             }
                         }
                         if(onField.size()>0){
@@ -216,15 +216,15 @@ public class SpellTrap extends Card{
                         targets,
                         targets[0] // Default option
                         );
-                        onField.get(tc).atk+=1000;
-                        updateText();
                         target=onField.get(tc);
+                        target.atk+=1000;
+                        target.updateText();
                         activated=true;
                     }
                 }
-
                 }else{
-                    target.owner.Hp-=500;
+                    target.owner.changeHp(-500, board.mw);
+                    board.HpDisplay.setText(String.valueOf(board.p1.Hp));
                 }
                 break;
             case "Axe of Despair":

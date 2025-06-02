@@ -237,4 +237,15 @@ public class Player {
             hand.get(i).dragable=bool;
         }
     }
+
+    public void changeHp(int change, MainWindow mw){
+        Hp+=change;
+        if(Hp<=0){
+            if(Name.equals("Player1")){
+                mw.lose();
+            }else{
+                mw.win();
+            }
+        }
+    }
 }
