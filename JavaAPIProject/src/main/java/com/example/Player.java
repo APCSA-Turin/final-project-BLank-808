@@ -14,7 +14,7 @@ public class Player {
     Card[] mDeck,deck1,deck2,deck3= new Card[60];
     int Hp;
     ArrayList<DraggableImage> hand;
-    int pos=0;
+    int pos=0, monstersPerTurn=1;
     String Name;
     boolean autoPlay;
     private Robot robot;

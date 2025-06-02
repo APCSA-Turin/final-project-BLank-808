@@ -72,17 +72,23 @@ public class ImagePanel extends JPanel{
                     currenttext= "Monster Zone";
                     jLabel.setType("Graveyard");
                     Graveyard1=jLabel;
-                    jLabel.setIcon(new ImageIcon(Card.back.getScaledInstance(cardWidth, cardHeight, Image.SCALE_DEFAULT)));
                     break;
                 case 14:
-                    jLabel.setType("Field Zone");
-                    Field2=jLabel;
+                    jLabel.setType("Graveyard");
+                    Graveyard2=jLabel;
                     break;
                 case 20:
                     y-= cardHeight+5;
                     currenttext = "Spell/Trap Zone";
-                    jLabel.setType("Graveyard");
-                    Graveyard2=jLabel;
+                    jLabel.setType("Field Zone");
+                    Field2=jLabel;
+                    break;
+                case 21:
+                    jLabel.setType("Extra deck");
+                    break;
+                case 27:
+                    jLabel.setType("Main deck");
+                    jLabel.setIcon(new ImageIcon(Card.back.getScaledInstance(cardWidth, cardHeight, Image.SCALE_DEFAULT)));
                     break;
                 default:
                     break;
@@ -120,6 +126,10 @@ public class ImagePanel extends JPanel{
                         }
                     if(zone!=null && zone.getName().equals(draggedImage.getName()) && zone.type.contains(draggedImage.c.ct)&& (zone.inUse!=true|| draggedImage.c.level>4)){
                         if(getZoneAt(draggedImage.start)==null){
+                            if(draggedImage.c.ct.equals("Monster")){
+                                draggedImage.c.owner.monstersPerTurn--;
+                            }
+                            if(draggedImage.c.owner.monstersPerTurn>=0){
                             if(draggedImage.c.level>4 && draggedImage.c.owner==p1){
                                 draggedImage.summonable=false;
                                     String[] options = {"yes", "no"};
@@ -217,6 +227,7 @@ public class ImagePanel extends JPanel{
                                 }
                             }
                         }
+                    }
                     }
                     if(draggedImage.start!=null){
                     draggedImage.setLocation(draggedImage.start);
@@ -429,6 +440,8 @@ public class ImagePanel extends JPanel{
                     }
                 }else if(mw.phase==4){
                     images.get(i).dragable=true;
+                    p1.monstersPerTurn=1;
+                    p2.monstersPerTurn=1;
                 }
             }
         }
