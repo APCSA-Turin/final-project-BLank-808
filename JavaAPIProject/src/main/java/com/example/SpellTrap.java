@@ -208,8 +208,8 @@ public class SpellTrap extends Card{
                         String[] targets = onFieldOptions.toArray(new String[onFieldOptions.size()]);
                         int tc = JOptionPane.showOptionDialog(
                         null,
-                        "Select monster to tribute",
-                        "Tribute prompt",
+                        "Select monster to eqiup",
+                        "eqiup prompt",
                         JOptionPane.YES_NO_OPTION,
                         JOptionPane.ERROR_MESSAGE,
                         null,

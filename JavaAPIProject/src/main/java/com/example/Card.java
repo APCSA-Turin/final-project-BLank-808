@@ -93,7 +93,7 @@ public class Card{
          fullData=content.toString();
     }
 
-        public Card(String savedDesc, int speed){
+    public Card(String savedDesc, int speed){
         String[] temp= savedDesc.split(": ");
         name= temp[1].substring(0,temp[1].indexOf("+"));
         type= temp[3].substring(0,temp[3].indexOf("+"));  

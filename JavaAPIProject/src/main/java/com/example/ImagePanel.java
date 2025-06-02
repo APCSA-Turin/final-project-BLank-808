@@ -116,7 +116,7 @@ public class ImagePanel extends JPanel{
                             battle(draggedImage,other);
                         }
                         if(mw.phase==2 && OponentFieldEmpty()){
-                            p2.Hp+=draggedImage.stat;
+                            draggedImage.dealDirect();
                         }
                     if(zone!=null && zone.getName().equals(draggedImage.getName()) && zone.type.contains(draggedImage.c.ct)&& (zone.inUse!=true|| draggedImage.c.level>4)){
                         if(getZoneAt(draggedImage.start)==null){
@@ -138,8 +138,8 @@ public class ImagePanel extends JPanel{
                                     ArrayList<DraggableImage> onField= new ArrayList<>();
                                     ArrayList<String> onFieldOptions= new ArrayList<>();
                                     for(int i=0; i<14; i++){
-                                        if(getDraggableImageAt(zones.get(i).getLocation())!=null && getDraggableImageAt(zones.get(i).getLocation()).c.ct.contains("Monster")){
-                                            if(getDraggableImageAt(zones.get(i).getLocation())!=draggedImage){
+                                        if(getDraggableImageAt(zones.get(i).getLocation(),draggedImage)!=null && getDraggableImageAt(zones.get(i).getLocation()).c.ct.contains("Monster")){
+                                            {
                                             onField.add(getDraggableImageAt(zones.get(i).getLocation()));
                                             onFieldOptions.add(getDraggableImageAt(zones.get(i).getLocation()).c.name);
                                             }
@@ -189,14 +189,19 @@ public class ImagePanel extends JPanel{
                                     }
                                 }
                             }
-                            if(draggedImage.summonable && !zone.inUse){
+                            if(draggedImage.summonable){
+                                if(!zone.inUse){
                                 draggedImage.start=zone.getLocation();
+                                zone.occupy();
+                                }else{
+                                    getZoneAt(draggedImage.start).occupy();
+                                }
+                                draggedImage.dragable=false;
                                 if(draggedImage.getName().equals("Player1")){
                                     hand1.remove(draggedImage);
                                 }else{
                                     hand2.remove(draggedImage);
                                 }
-                                zone.occupy();
                                 field.add(draggedImage.c);
                                 if(!draggedImage.viewable){
                                     draggedImage.changeViewable();
@@ -221,15 +226,6 @@ public class ImagePanel extends JPanel{
                         System.out.println("No start point set");
                     }
                 }
-            }
-
-            private boolean OponentFieldEmpty() {
-                for (Card card : field) {
-                    if(card.owner!=p1 && card.ct.equals("Monster")){
-                        return false;
-                    }
-                }
-                return true;
             }
 
             @Override
@@ -266,6 +262,15 @@ public class ImagePanel extends JPanel{
         setVisible(true);
     }
 
+    private boolean OponentFieldEmpty() {
+                for (Card card : field) {
+                    if(card.owner!=p1 && card.ct.equals("Monster")){
+                        return false;
+                    }
+                }
+                return true;
+            }
+
     public void battle(DraggableImage d1, DraggableImage d2){
         Card FieldSpell1 = null,FieldSpell2 = null;
         if(getDraggableImageAt(Field1.getLocation())!=null){
@@ -292,16 +297,22 @@ public class ImagePanel extends JPanel{
             sendToGrave(d2);
             d2.c.owner.Hp-=d1.stat-d2.stat;
         }
+        d1.atksavaiable--;
+        if(d1.atksavaiable<=0){
+            d1.dragable=false;
+            d1.rotatable=false;
+        }
+        System.out.println(d1.dragable);
         HpDisplay.setText(String.valueOf(p1.Hp));
         repaint();
     }
 
     public void reset(){
         for (int i = images.size() - 1; i >= 0; i--) {
-            remove(images.get(0));
             if(getZoneAt(images.get(0).getLocation())!=null){
             getZoneAt(images.get(0).getLocation()).empty();
             }
+            remove(images.get(0));
             images.remove(0);
         }
         hand1.clear();
@@ -336,7 +347,7 @@ public class ImagePanel extends JPanel{
         super.repaint();
     }
 
-    public void addCardImage(String imagePath, Card c, String location) {
+    public void addCardImage(String imagePath, Card c, String player) {
         try{
             ImageIcon icon = new ImageIcon(imagePath);
             icon.setImage(icon.getImage().getScaledInstance(cardWidth, cardHeight, Image.SCALE_DEFAULT));
@@ -344,7 +355,7 @@ public class ImagePanel extends JPanel{
             image.setBounds(0,0,icon.getIconWidth(), icon.getIconHeight());
             add(image);
             images.add(image);
-            if(location.equals("Player1")){
+            if(player.equals("Player1")){
                 hand1.add(image);
                 int handX = ((hand1.size()-1)*cardWidth)+250;
                 image.start=new Point(handX,(int)(mw.getHeight()-1.6*cardHeight));
@@ -352,15 +363,14 @@ public class ImagePanel extends JPanel{
                 c.owner=p1;
                 image.setName("Player1");
             }
-            if(location.equals("Player2")){
+            if(player.equals("Player2")){
                 hand2.add(image);
                 c.owner=p2;
-                // image.dragable=false;;
                 int handX = ((hand2.size()-1)*cardWidth)+250;
                 image.start=new Point(handX,-10);
                 image.setLocation(handX, -10);
                 image.setName("Player2");
-                //image.changeViewable();
+                image.changeViewable();
             }
         } catch (Exception e){
             System.err.println("Error loading or adding image: " + e.getMessage());
@@ -377,10 +387,10 @@ public class ImagePanel extends JPanel{
         return null;
     }
 
-    private DraggableImage getDraggableImageAt(Point point, DraggableImage exeption) {
+    private DraggableImage getDraggableImageAt(Point point, DraggableImage exception ) {
         for (int i = images.size() - 1; i >= 0; i--) {
             DraggableImage image = images.get(i);
-            if (image.getBounds().contains(point) && image != exeption) {
+            if (image.getBounds().contains(point) && image != exception) {
                 return image;
             }
         }
@@ -397,23 +407,51 @@ public class ImagePanel extends JPanel{
         return null;
     }
 
+    void setPlayerinteractable(String player){
+        for (int i = 0; i < images.size(); i++) {
+            if(images.get(i).getName().equals(player)){
+                System.out.println(images.get(i).getName());
+                if(mw.phase==0){
+                    images.get(i).dragable=false;
+                }else if(mw.phase==1){
+                    if(!field.contains(images.get(i).c)){
+                    images.get(i).dragable=true;
+                    }
+                }else if(mw.phase==2){
+                    if(!field.contains(images.get(i).c)){
+                    images.get(i).dragable=false;
+                    }else{
+                    images.get(i).dragable=true;
+                    }
+                }else if(mw.phase==3){
+                    if(!field.contains(images.get(i).c)){
+                    images.get(i).dragable=true;
+                    }
+                }else if(mw.phase==4){
+                    images.get(i).dragable=true;
+                }
+            }
+        }
+    }
+
     public class DraggableImage extends JLabel {
         protected boolean summonable=true;
         Card c;
         Image front;
         boolean rotated=false;
         boolean interacable=true;
-        boolean dragable=true;
+        boolean dragable;
         boolean rotatable=true;
         boolean viewable=true;
         Point start;
-        int stat;
+        int stat,atksavaiable;
 
         public DraggableImage(ImageIcon icon,Card card) {
             super(icon);
             front=icon.getImage();
             c=card;
             stat=c.atk;
+            atksavaiable=1;
             if(!c.ct.contains("Monster")){
                 rotatable=false;
             }
@@ -476,6 +514,10 @@ public class ImagePanel extends JPanel{
         }
 
         public void dealDirect() {
+            atksavaiable--;
+            if(atksavaiable<=0){
+                dragable=false;
+            }
             if(c.owner==p1){
                 p2.Hp-=c.atk;
                 if(p2.Hp<=0){
@@ -534,7 +576,7 @@ public class ImagePanel extends JPanel{
     }
 
     public void reactivate(String string) {
-        if(string.equals("Player 1")){
+        if(string.equals("Player1")){
             for(int i=1; i<6; i++){
                 Card card=getDraggableImageAt(zones.get(i).getLocation()).c;
                 if(card.ct.equals("Spell")){

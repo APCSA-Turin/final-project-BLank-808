@@ -87,7 +87,6 @@ public class Player {
                             if(z.inUse==false && z.getName().equals(Name) && z.type.contains(card.ct)){
                                     p= z.getLocation();
                                     robot.mouseMove(p.x+300, p.y+110);
-                                    Thread.sleep(250);
                                     robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
                                     break;
                             }
@@ -120,7 +119,6 @@ public class Player {
                                     if(z.inUse==false && z.getName().equals(Name) && z.type.contains(card.ct)){
                                             p= z.getLocation();
                                             robot.mouseMove(p.x+300, p.y+110);
-                                            Thread.sleep(250);
                                             robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
                                             break;
                                     }
@@ -155,7 +153,6 @@ public class Player {
                                     if(z.inUse==false && z.getName().equals(Name) && z.type.contains(card.ct)){
                                             p= z.getLocation();
                                             robot.mouseMove(p.x+300, p.y+110);
-                                            Thread.sleep(250);
                                             robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
                                             break;
                                     }
@@ -232,11 +229,11 @@ public class Player {
         }
     }
 
-    public void setPlayerCardsInteractable(Boolean bool){
-        for (int i = 0; i < hand.size(); i++) {
-            hand.get(i).dragable=bool;
-        }
-    }
+    // public void setPlayerCardsInteractable(Boolean bool){
+    //     for (int i = 0; i < hand.size(); i++) {
+    //         hand.get(i).dragable=bool;
+    //     }
+    // }
 
     public void changeHp(int change, MainWindow mw){
         Hp+=change;

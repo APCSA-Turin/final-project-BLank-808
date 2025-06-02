@@ -32,6 +32,8 @@ class MainWindow extends JFrame{
         imagePanel= new ImagePanel(infoPanel,this, p1,p2);
         window.add(new NorthPanel(), BorderLayout.NORTH);
         window.add(imagePanel);
+        phase=0;
+        imagePanel.setPlayerinteractable("Player1");
     }
 
     public void start(){
@@ -41,7 +43,7 @@ class MainWindow extends JFrame{
 
     public void lose(){
         JOptionPane.showMessageDialog(window, "You're just a third-rate duelist with a fourth-rate deck!", "You lose", JOptionPane.ERROR_MESSAGE);
-        String[] options = {"Retry", "Cancel"};
+        String[] options = {"Retry", "close"};
         int choice = JOptionPane.showOptionDialog(
                 null,
                 "Do you want to retry?",
@@ -50,18 +52,35 @@ class MainWindow extends JFrame{
                 JOptionPane.ERROR_MESSAGE,
                 null,
                 options,
-                options[1] // Default option
+                options[0] // Default option
         );
 
         if (choice == 0) {
             imagePanel.reset();
         } else {
-
+            this.dispose();
         }
     }
 
     public void win(){
         JOptionPane.showMessageDialog(window, "You're quite the smart one!", "You Win", JOptionPane.ERROR_MESSAGE);
+        String[] options = {"Replay", "close"};
+        int choice = JOptionPane.showOptionDialog(
+                null,
+                "Do you want to retry?",
+                "Error",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.ERROR_MESSAGE,
+                null,
+                options,
+                options[0] // Default option
+        );
+
+        if (choice == 0) {
+            imagePanel.reset();
+        } else {
+            this.dispose();
+        }
     }
 
     public void card(Card card, String location){
@@ -78,6 +97,7 @@ class MainWindow extends JFrame{
                     if(phase<1){
                         phase=1;
                         player.draw(imagePanel.mw);
+                        imagePanel.setPlayerinteractable("Player1");
                         imagePanel.reactivate("Player1");
                         b.setBackground(Color.LIGHT_GRAY);
                     }
@@ -90,6 +110,7 @@ class MainWindow extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     if(phase<2){
                         phase=2;
+                        imagePanel.setPlayerinteractable("Player1");
                         b2.setBackground(Color.LIGHT_GRAY);
                         b.setBackground(Color.WHITE);
                     }
@@ -102,6 +123,7 @@ class MainWindow extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     if(phase<3){
                         phase=3;
+                        imagePanel.setPlayerinteractable("Player1");
                         b3.setBackground(Color.LIGHT_GRAY);
                         b2.setBackground(Color.WHITE);
                         b.setBackground(Color.WHITE);
@@ -115,8 +137,10 @@ class MainWindow extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     if(phase<4){
                         phase=4;
+                        imagePanel.setPlayerinteractable("Player2");
                         try {
                             bot.Play(imagePanel.mw);
+                            imagePanel.setPlayerinteractable("Player1");
                         } catch (InterruptedException e1) {
                             e1.printStackTrace();
                         }
