@@ -246,6 +246,17 @@ public class SpellTrap extends Card{
             case "Wetlands":
                 break;
             case "Wasteland":
+                for (int i=0; i<list.size();i++) {
+                    Card card=list.get(i);
+                    if(card.ct.contains("Monster")){
+                        if((card.type.contains("Rock") || card.type.contains("Zombie") || card.type.contains("Dinosaur"))&& !affected.contains(card)){
+                            card.atk+=200;
+                            card.def+=200;
+                            affected.add(card);
+                            card.updateText();
+                        }
+                    }
+                }
                 activated=true;
                 break;
             case "Umiiruka":
