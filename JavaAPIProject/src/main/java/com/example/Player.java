@@ -6,7 +6,6 @@ import com.example.ImagePanel.DraggableImage;
 import com.example.ImagePanel.Zone;
 
 import java.awt.AWTException;
-import java.awt.IllegalComponentStateException;
 import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
@@ -15,7 +14,7 @@ public class Player {
     Card[] mDeck,deck1,deck2,deck3= new Card[60];
     int Hp;
     ArrayList<DraggableImage> hand;
-    int pos=4;
+    int pos=0;
     String Name;
     boolean autoPlay;
     private Robot robot;
@@ -78,7 +77,6 @@ public class Player {
                 ArrayList<DraggableImage> sorted =  evaluateHand();
                 while (sorted.size()>0){
                     Card card=sorted.get(0).c;
-                    System.out.println(sorted.get(0).dragable);
                     if(card!=null){
                     Point p =sorted.get(0).getLocation();
                     robot.mouseMove(p.x+300,p.y+110);
@@ -87,7 +85,6 @@ public class Player {
                         for(int i=0; i < myField.size();i++){
                             Zone z=myField.get(i);
                             if(z.inUse==false && z.getName().equals(Name) && z.type.contains(card.ct)){
-                                System.out.println("Found zone");
                                     p= z.getLocation();
                                     robot.mouseMove(p.x+300, p.y+110);
                                     Thread.sleep(250);
@@ -95,34 +92,32 @@ public class Player {
                                     break;
                             }
                         }
-                        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                        break;
                     }else{
                         ArrayList<DraggableImage> fCards= new ArrayList<>();
                         for (int i=0; i<myField.size(); i++) {
                             Point q=myField.get(i).getLocation();
-                            if(imagePanel.getDraggableImageAt(new Point(q.x+310, q.y+30))!=null && imagePanel.getDraggableImageAt(new Point(q.x+310, q.y+30)).c.ct.equals("Monster")){
-                                fCards.add(imagePanel.getDraggableImageAt(new Point(q.x+310, q.y+30)));
+                            if(imagePanel.getDraggableImageAt(new Point(q.x, q.y))!=null && imagePanel.getDraggableImageAt(new Point(q.x, q.y)).c.ct.equals("Monster")){
+                                fCards.add(imagePanel.getDraggableImageAt(new Point(q.x, q.y)));
                             }
                         }
+
+                        //System.out.println(fCards.size() + " Selecting tributes");
+
                         if(card.level<7 & fCards.size()>=1){
                             int min=5000;
                             DraggableImage target=null;
-                            for (int i=0; i<fCards.size(); i++) {
-                                System.out.println(fCards.get(i).getLocation());
+                            for (int i=0; i<fCards.size(); i++){
                                 if(fCards.get(i).c.atk<=min){
                                     min= fCards.get(i).c.atk;
                                     target=fCards.get(i);
                                 }
                             }
-                            System.out.println(target);
                         if(min<card.atk && target!=null){
                                 imagePanel.sendToGrave(target);
                                 robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
                                 for(int i=0; i < myField.size();i++){
                                     Zone z=myField.get(i);
                                     if(z.inUse==false && z.getName().equals(Name) && z.type.contains(card.ct)){
-                                        System.out.println("Found zone");
                                             p= z.getLocation();
                                             robot.mouseMove(p.x+300, p.y+110);
                                             Thread.sleep(250);
@@ -130,11 +125,9 @@ public class Player {
                                             break;
                                     }
                                 }
-                                robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-                                break;
                             }
-                        } else if(fCards.size()>2){
-                            int min=0;
+                        } else if(fCards.size()>1){
+                            int min=5000;
                             DraggableImage target=null;
                             for (int i=0; i<fCards.size(); i++) {
                                 if(fCards.get(i).c.atk<min){
@@ -145,7 +138,7 @@ public class Player {
                             if(target!=null){
                             fCards.remove(target);
                             }
-                            int min2=0;
+                            int min2=5000;
                             DraggableImage target2=null;
                             for (int i=0; i<fCards.size(); i++) {
                                 if(fCards.get(i).c.atk<min2){
@@ -160,7 +153,6 @@ public class Player {
                                 for(int i=0; i < myField.size();i++){
                                     Zone z=myField.get(i);
                                     if(z.inUse==false && z.getName().equals(Name) && z.type.contains(card.ct)){
-                                        System.out.println("Found zone");
                                             p= z.getLocation();
                                             robot.mouseMove(p.x+300, p.y+110);
                                             Thread.sleep(250);
@@ -174,19 +166,43 @@ public class Player {
                 }else{System.out.println("No card chosen");}
                 sorted.remove(0);
             }
-
-            {
+            //System.out.println("Card was played");
+            Thread.sleep(250);
             ArrayList<DraggableImage> fCards= new ArrayList<>();
                 for (int i=0; i<myField.size(); i++) {
                     Point q=myField.get(i).getLocation();
-                    if(imagePanel.getDraggableImageAt(new Point(q.x+310, q.y+30))!=null && imagePanel.getDraggableImageAt(new Point(q.x+310, q.y+30)).c.ct.equals("Monster")){
-                        fCards.add(imagePanel.getDraggableImageAt(new Point(q.x+310, q.y+30)));
+                    if(imagePanel.getDraggableImageAt(new Point(q.x, q.y))!=null && imagePanel.getDraggableImageAt(new Point(q.x, q.y)).c.ct.equals("Monster")){
+                        fCards.add(imagePanel.getDraggableImageAt(new Point(q.x, q.y)));
+                        if(fCards.get(fCards.size()-1).rotated){
+                            fCards.get(fCards.size()-1).rotateClockwise90();
+                        }
                     }
                 }
+                //System.out.println(fCards.size()+" Checking field2");
+                ArrayList<DraggableImage> oCards= new ArrayList<>();
+                for (int i=0; i<oppField.size(); i++) {
+                    Point q=oppField.get(i).getLocation();
+                    if(imagePanel.getDraggableImageAt(new Point(q.x, q.y))!=null && imagePanel.getDraggableImageAt(new Point(q.x, q.y)).c.ct.equals("Monster")){
+                        oCards.add(imagePanel.getDraggableImageAt(new Point(q.x, q.y)));
+                    }
+                }
+                //System.out.println(oCards.size()+"Checking field1");
+                for (int i = 0; i < fCards.size(); i++) {
+                    if(oCards.size()==0){
+                        fCards.get(i).dealDirect();
+                    }
+                    for (int index = 0; index < oCards.size(); index++) {
+                        if(oCards.get(index).stat<fCards.get(i).stat){
+                            imagePanel.battle(fCards.get(i), oCards.get(index));
+                            break;
+                        }
+                        if(index==oCards.size()-1){
+                            fCards.get(i).rotateClockwise90();
+                        }
+                    }
             }
             mw.phase=0;
         }
-        //setPlayerCardsInteractable(false);
     }
 
     public ArrayList<DraggableImage> evaluateHand(){
@@ -201,10 +217,11 @@ public class Player {
         return temp;
     }
 
-    private void draw(MainWindow mw){
+    void draw(MainWindow mw){
         pos++;
         if(mDeck[pos]!=null){
         mw.card(mDeck[pos], Name);
+        System.out.println(mDeck[pos].name);
         }else{
             Hp=0;
             if(Name.equals("Player1")){

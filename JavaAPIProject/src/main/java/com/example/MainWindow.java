@@ -1,18 +1,22 @@
 package com.example;
 import javax.swing.*;
 
+import com.example.ImagePanel.DraggableImage;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 class MainWindow extends JFrame{
     ImagePanel imagePanel;
-    Player bot;
+    Player bot,player;
     int phase;
     private JFrame window;
     public MainWindow(Player p1, Player p2){
         window=new JFrame();
+        player=p1;
         bot=p2;
         setLayout(new BorderLayout());
         window.setTitle("Very poorly done YU-GI-OH");
@@ -73,6 +77,8 @@ class MainWindow extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     if(phase<1){
                         phase=1;
+                        player.draw(imagePanel.mw);
+                        imagePanel.reactivate("Player1");
                         b.setBackground(Color.LIGHT_GRAY);
                     }
                 }

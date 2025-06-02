@@ -2,14 +2,20 @@ package com.example;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import com.example.ImagePanel.DraggableImage;
+import com.example.ImagePanel.Zone;
 
 public class SpellTrap extends Card{
     int turnsSinceSet=0;
+    Card target;
+    ArrayList<Card> affected;
     boolean activated;
     int speed=1;
     public SpellTrap(String str){
         super(str,1);
+        activated=false;
         if (type.contains("Spell")){
             ct= "Spell";
             if(type.contains(" Field")){
@@ -27,7 +33,7 @@ public class SpellTrap extends Card{
         }
     }
 
-    public boolean activate(ImagePanel board){
+    public void activate(ImagePanel board){
         ArrayList<Card> list= board.field; 
         ArrayList<DraggableImage> hand;
         Card[] Deck;
@@ -38,29 +44,29 @@ public class SpellTrap extends Card{
         hand=board.hand2;
         Deck=board.p2.mDeck;
         }
-        ArrayList<Card> cardsaffected= new ArrayList<>();
+       affected= new ArrayList<>();
         String Name= name;
         switch(Name){
             case "A Legendary Ocean":
                 for (int i=0; i<list.size();i++) {
                     Card card=list.get(i);
                     if(card.ct.contains("Monster")){
-                        if(card.attribute.equals("WATER")&& !cardsaffected.contains(card)){
+                        if(card.attribute.equals("WATER")&& !affected.contains(card)){
                             card.atk+=200;
                             card.def+=200;
                             card.level-=1;
-                            cardsaffected.add(card);
+                            affected.add(card);
                             card.updateText();
                         }
                     }
                 }
                 for (DraggableImage card : hand) {
                     if(card.c.ct.contains("Monster")){
-                        if(card.c.attribute.equals("WATER")&& !cardsaffected.contains(card.c)){
+                        if(card.c.attribute.equals("WATER")&& !affected.contains(card.c)){
                             card.c.atk+=200;
                             card.c.def+=200;
                             card.c.level-=1;
-                            cardsaffected.add(card.c);
+                            affected.add(card.c);
                             card.c.updateText();
                         }
                     }
@@ -71,10 +77,10 @@ public class SpellTrap extends Card{
                 for (int i=0; i<list.size();i++) {
                     Card card=list.get(i);
                     if(card.ct.contains("Monster")){
-                        if(card.attribute.equals("EARTH")&& !cardsaffected.contains(card)){
+                        if(card.attribute.equals("EARTH")&& !affected.contains(card)){
                             card.atk-=500;
                             card.def+=400;
-                            cardsaffected.add(card);
+                            affected.add(card);
                             card.updateText();
                         }
                     }
@@ -85,10 +91,10 @@ public class SpellTrap extends Card{
                 for (int i=0; i<list.size();i++) {
                     Card card=list.get(i);
                     if(card.ct.contains("Monster")){
-                        if(card.type.contains("Rock")&& !cardsaffected.contains(card)){
+                        if(card.type.contains("Rock")&& !affected.contains(card)){
                             card.atk+=500;
                             card.def+=500;
-                            cardsaffected.add(card);
+                            affected.add(card);
                             card.updateText();
                         }
                     }
@@ -99,13 +105,10 @@ public class SpellTrap extends Card{
                 for (int i=0; i<list.size();i++) {
                     Card card=list.get(i);
                     if(card.ct.contains("Monster")){
-                        if(card.type.contains("Fiend")&& !cardsaffected.contains(card)){
+                        if(card.type.contains("Fiend")&& !affected.contains(card)){
                             card.atk+=500;
-                            System.out.println(card.atk);
                             card.updateText();
-                            cardsaffected.add(card);
-                            System.out.println(card);
-                            System.out.println("************************************");
+                            affected.add(card);
                         }
                     }
                 }
@@ -115,9 +118,9 @@ public class SpellTrap extends Card{
                 for (int i=0; i<list.size();i++) {
                     Card card=list.get(i);
                     if(card.ct.contains("Monster")){
-                        if(card.type.contains("Wyrm")&& !cardsaffected.contains(card)){
+                        if(card.type.contains("Wyrm")&& !affected.contains(card)){
                             card.atk+=500;
-                            cardsaffected.add(card);
+                            affected.add(card);
                             card.updateText();
                         }
                     }
@@ -169,6 +172,7 @@ public class SpellTrap extends Card{
             case "Drowning Mirror Force":
                 break;
             case "Broken Bamboo Sword":
+                
                 break;
             case "Book of Secret Arts":
                 break;
@@ -185,6 +189,43 @@ public class SpellTrap extends Card{
             case "Backfire":
                 break;
             case "Axe of Fools":
+                if(!activated){
+                    if(owner.Name.equals("Player1")){
+                        ArrayList<Card> onField= new ArrayList<>();
+                        ArrayList<String> onFieldOptions= new ArrayList<>();
+                        ArrayList<Zone> zones = board.zones;
+                        for(int i=0; i<28; i++){
+                            if(board.getDraggableImageAt(zones.get(i).getLocation())!=null && board.getDraggableImageAt(zones.get(i).getLocation()).c == this){
+                            DraggableImage self= board.getDraggableImageAt(zones.get(i).getLocation());
+                            self.changeViewable();
+                            }
+                            if(board.getDraggableImageAt(zones.get(i).getLocation())!=null && board.getDraggableImageAt(zones.get(i).getLocation()).c.ct.contains("Monster")){
+                                    onField.add(board.getDraggableImageAt(zones.get(i).getLocation()).c);
+                                    onFieldOptions.add(board.getDraggableImageAt(zones.get(i).getLocation()).c.name);
+                            }
+                        }
+                        if(onField.size()>0){
+                        String[] targets = onFieldOptions.toArray(new String[onFieldOptions.size()]);
+                        int tc = JOptionPane.showOptionDialog(
+                        null,
+                        "Select monster to tribute",
+                        "Tribute prompt",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.ERROR_MESSAGE,
+                        null,
+                        targets,
+                        targets[0] // Default option
+                        );
+                        onField.get(tc).atk+=1000;
+                        updateText();
+                        target=onField.get(tc);
+                        activated=true;
+                    }
+                }
+
+                }else{
+                    target.owner.Hp-=500;
+                }
                 break;
             case "Axe of Despair":
                 break;
@@ -214,6 +255,5 @@ public class SpellTrap extends Card{
                 activated=true;
                 break;
         }
-        return activated;
     }
 }

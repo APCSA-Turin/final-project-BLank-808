@@ -47,12 +47,12 @@ public class App
                 MainWindow mW = new MainWindow(p1,p2);
                 for (int i = 0; i < 5; i++) {
                     if(p1.mDeck[i]!=null){
-                    mW.card(p1.mDeck[i], "Player1");
+                    p1.draw(mW);
                     }
                 }
                 for (int i = 0; i < 5; i++) {
                     if(p2.mDeck[i]!=null){
-                    mW.card(p2.mDeck[i], "Player2");
+                    p2.draw(mW);
                     }
                 }
                 mW.start();

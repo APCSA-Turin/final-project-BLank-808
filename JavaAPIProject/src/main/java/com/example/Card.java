@@ -131,7 +131,7 @@ public class Card{
          fullData=content.toString();
     }
 
-    public void activate(){}
+    public void activate(ImagePanel board){}
 
     public String toString(){
         return fullData.replace("+", "\n");

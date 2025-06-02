@@ -28,3 +28,33 @@ Name: Axe of Fools+Level: 0+Type: Spell Card Equip+Archetype: null+The equipped 
 ","
 Name: Axe of Fools+Level: 0+Type: Spell Card Equip+Archetype: null+The equipped monster gains 1000 ATK, also its effects are negated. Once per turn, during your Standby Phase; Inflict 500 damage to the controller of the equipped monster.+ID: 19578592
 ","
+Name: Wasteland+Level: 0+Type: Spell Card Field+Archetype: null+All Dinosaur, Zombie, and Rock monsters on the field gain 200 ATK/DEF.+ID: 23424603
+","
+Name: Wasteland+Level: 0+Type: Spell Card Field+Archetype: null+All Dinosaur, Zombie, and Rock monsters on the field gain 200 ATK/DEF.+ID: 23424603
+","
+Name: Wasteland+Level: 0+Type: Spell Card Field+Archetype: null+All Dinosaur, Zombie, and Rock monsters on the field gain 200 ATK/DEF.+ID: 23424603
+","
+Name: The Statue of Easter Island+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1100+Def: 1400+A stone monument from Easter Island that launches laser blasts from its rock-hewn lips.+ID: 10262698
+","
+Name: The Thing That Hides in the Mud+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: Recolored counterpart+Scale: -1+Atk: 1200+Def: 1300+''This monster melts its way underground to attack enemies from below.''+ID: 18180762
+","
+Name: The Statue of Easter Island+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1100+Def: 1400+A stone monument from Easter Island that launches laser blasts from its rock-hewn lips.+ID: 10262698
+","
+Name: The Thing That Hides in the Mud+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: Recolored counterpart+Scale: -1+Atk: 1200+Def: 1300+''This monster melts its way underground to attack enemies from below.''+ID: 18180762
+","
+Name: The Statue of Easter Island+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1100+Def: 1400+A stone monument from Easter Island that launches laser blasts from its rock-hewn lips.+ID: 10262698
+","
+Name: The Thing That Hides in the Mud+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: Recolored counterpart+Scale: -1+Atk: 1200+Def: 1300+''This monster melts its way underground to attack enemies from below.''+ID: 18180762
+","
+Name: Stone Dragon+Level: 7+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 2000+Def: 2300+A dragon formed by huge boulders that are also used to attack the enemy.+ID: 68171737
+","
+Name: Stone Ghost+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1200+Def: 1000+''With a head that erupts when angered, this monster launches a dangerous shower of boulders.''+ID: 72269672
+","
+Name: Stone Ogre Grotto+Level: 5+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1600+Def: 1500+A behemoth shaped by giant boulders.+ID: 15023985
+","
+Name: Stone Dragon+Level: 7+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 2000+Def: 2300+A dragon formed by huge boulders that are also used to attack the enemy.+ID: 68171737
+","
+Name: Stone Ghost+Level: 4+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1200+Def: 1000+''With a head that erupts when angered, this monster launches a dangerous shower of boulders.''+ID: 72269672
+","
+Name: Stone Ogre Grotto+Level: 5+Type: Normal Monster Rock+Attribute: EARTH+Archetype: null+Scale: -1+Atk: 1600+Def: 1500+A behemoth shaped by giant boulders.+ID: 15023985
+","
